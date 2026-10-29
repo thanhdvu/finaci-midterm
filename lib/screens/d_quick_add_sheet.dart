@@ -2,7 +2,7 @@
 // ┌──────── 디자인 가이드 대응표: D 빠른 기록 ────────────────────────────────┐
 // │ D-1 SegmentedButton                       수입·지출·이체 선택      P07     │
 // │ D-2 TextField                              금액 입력                P02     │
-// │ D-3 ChoiceChip                             계좌·통화 선택           P02·P06 │
+// │ D-3 ChoiceChip                             거래 통화 선택           P02·P06 │
 // │ D-4 ChoiceChip                             분류 선택                P07     │
 // │ D-5 ListTile                               날짜 확인                P02     │
 // │ D-6 FilledButton                           예시 추가 응답           P01·P10 │
@@ -108,7 +108,13 @@ class _QuickAddBottomSheetState extends State<QuickAddBottomSheet> {
                   decoration: InputDecoration(
                     labelText: '금액',
                     hintText: '금액 입력',
-                    prefixText: _currency == 'KRW' ? '₩ ' : '₫ ',
+                      prefixText: switch (_currency) {
+                        'KRW' => '₩ ',
+                        'VND' => '₫ ',
+                        'USD' => '\$ ',
+                        'EUR' => '€ ',
+                        _ => '¥ ',
+                      },
                     filled: true,
                     fillColor: finaciSurface,
                     border: OutlineInputBorder(
@@ -118,15 +124,16 @@ class _QuickAddBottomSheetState extends State<QuickAddBottomSheet> {
                   ),
                 ), // D-2 P02
                 const SizedBox(height: 12),
-                Text('계좌 · 통화', style: Theme.of(context).textTheme.labelLarge),
+                Text('거래 통화', style: Theme.of(context).textTheme.labelLarge),
                 const SizedBox(height: 6),
                 Wrap(
                   spacing: 8,
+                    runSpacing: 8,
                   children: [
-                    for (final currency in ['KRW', 'VND'])
+                    for (final currency in ['KRW', 'VND', 'USD', 'EUR', 'JPY'])
                       ChoiceChip(
                         label: Text(
-                          currency == 'KRW' ? '한국 계좌 · KRW' : '베트남 계좌 · VND',
+                          currency,
                         ),
                         selected: _currency == currency,
                         onSelected: (_) => setState(() => _currency = currency),
@@ -181,3 +188,4 @@ class _QuickAddBottomSheetState extends State<QuickAddBottomSheet> {
     );
   }
 }
+

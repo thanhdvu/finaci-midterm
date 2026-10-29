@@ -1,7 +1,7 @@
 // 화면 A — 현금흐름 홈 (GET /outlook)
 // ┌──────── 디자인 가이드 대응표: A 현금흐름 홈 ───────────────────────────────────┐
 // │ A-1 AppBar + FinaciMascot                        finaci 제목줄         P04·P08 │
-// │ A-2 LayoutBuilder + Card                        KRW/VND 계좌 요약      P02·P08 │
+// │ A-2 LayoutBuilder + Card                        다중 통화 계좌 요약      P02·P08 │
 // │ A-3 SegmentedButton                             실제/예상 선택         P01     │
 // │ A-4 Card + Row/Container                        날짜별 예상 잔액       P01·P08 │
 // │ A-5 CustomScrollView + ListTile                 전망에 포함된 예정 항목 P06·P07 │
@@ -194,7 +194,7 @@ class _HomeContent extends StatelessWidget {
                         Text('내 현금흐름', style: textTheme.headlineMedium),
                         const SizedBox(height: 4),
                         Text(
-                          '현재 잔액과 목표일까지의 예정 흐름을 확인해요.',
+                          '여러 통화의 돈 흐름을 한곳에서 확인해요.\n현재는 VND·KRW 예시 데이터입니다.',
                           style: textTheme.bodyMedium?.copyWith(
                             color: finaciMuted,
                           ),
@@ -298,11 +298,7 @@ class _BalanceCards extends StatelessWidget {
                             ),
                             const SizedBox(width: 7),
                             Text(
-                              balance.currency == 'KRW'
-                                  ? '한국 계좌'
-                                  : balance.currency == 'VND'
-                                  ? '베트남 계좌'
-                                  : '계좌 예시',
+                                '${balance.currency} 계좌',
                               style: Theme.of(context).textTheme.labelLarge
                                   ?.copyWith(
                                     color: finaciInk,
@@ -747,3 +743,4 @@ class _HomeActions extends StatelessWidget {
     );
   }
 }
+

@@ -94,3 +94,11 @@ C 시나리오는 2월 25일 예정 급여가 7일 늦어 3월 4일 입금되는
 - 제외 범위: POST/PUT/DELETE, 영구 저장, 로그인·결제, 실제 재무 계산·환율 API·AI API·개인정보.
 - 자산: mascot은 앞선 finaci 프로젝트에서 복사한 파일입니다. 원 제작자와 라이선스는 확인되지 않았으므로 공개/상업 배포 전에 확인하세요.
 - Vercel: 웹과 읽기 전용 json-server API를 같은 프로젝트에서 제공합니다. 2026-10-29 공개 URL과 GET 응답(200), POST/PUT/DELETE 거절(403)을 확인했습니다. 학생은 임시 프로젝트를 자신의 계정으로 수령했다고 확인했습니다. 재배포는 `scripts/prepare-vercel.ps1`로 빌드한 뒤 Vercel CLI에 로그인하여 `npx vercel --cwd mock_server --prod`로 진행합니다.
+
+## 발표와 시연
+
+- PowerPoint10장에는 MP4가 문서에 포함됩니다. PDF에서는 영상 링크를 사용합니다.
+- 제품 대상은 다국가·다중 통화 이용자이며 VND/KRW는 시연 시나리오입니다. 빠른 기록에는 KRW/VND/USD/EUR/JPY 예시 선택이 있습니다.
+- 자연스러운6분 발표 대본: [한국어 대본](docs/발표대본.md)
+- 교수 관점의 평가와 한계: [평가 기록](docs/audit-goc-nhin-giao-su.md)
+

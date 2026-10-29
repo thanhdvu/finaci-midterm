@@ -48,3 +48,6 @@ Hạn nộp: 15:00 KST. Bộ nộp dùng tên cố định `output/finaci-midter
 Ghi chú: Vercel đã cập nhật cả sửa căn lề B cuối; web/API công khai đã kiểm tra GET200 và POST403. Các bản v3–v11 trong máy là lịch sử nội bộ; chỉ hai file tên cố định trong output là bản nộp.
 
 
+
+- [x] Cập nhật: video60giây được nhúng ở slide10; PDF có poster/link. App dùng nhãn tài khoản theo mã tiền, D có5tiền tệ mẫu; đã có script Hàn tự nhiên và đánh giá theo góc nhìn giáo sư.
+
