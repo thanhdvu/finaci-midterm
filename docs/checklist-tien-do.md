@@ -1,6 +1,6 @@
 # Checklist giữa kỳ finaci — 29/10/2026
 
-Hạn nộp: 15:00 KST. Bộ nộp dùng tên cố định `output/finaci-midterm-final.pdf` và `.pptx`.
+Hạn nộp: 15:00 KST. Bản đóng gói cuối nằm trong `FINAL_LMS_FINACI/`, có ZIP cùng tên. Nộp PDF trong `01_NOP_LEN_LMS/` và dán URL GitHub; script/PPTX/video ở `02_THUYET_TRINH/`, audit ở `03_TU_KIEM_TRA/`. File nguồn cố định vẫn là `output/finaci-midterm-final.pdf` và `.pptx`.
 
 ## 1. Wallet và review — 10 điểm
 - [x] Quan sát Wallet 5.7.5 trên iPhone 14 Pro Max; ảnh đã che số dư.
@@ -42,6 +42,7 @@ Hạn nộp: 15:00 KST. Bộ nộp dùng tên cố định `output/finaci-midter
 - [x] Repo cá nhân: https://github.com/thanhdvu/finaci-midterm ; template giữ ở upstream.
 - [x] Đã push bộ nộp; clone sạch, npm ci và ba Flutter test đều qua.
 - [x] Tên/ID, tự đánh giá, script6 phút và Q&A đã có. Tạm86/100 + đề xuất5 Vercel; điểm thực tế do thầy chấm.
+- [x] Audit cuối có ma trận yêu cầu/format và giới hạn bằng chứng; script Hàn và audit Việt đã xuất PDF, đóng gói riêng bộ LMS. Bản PDF slide có 31 trang, PPTX giữ video nhúng; file đóng gói được đối chiếu với bản nguồn.
 - [ ] Người trình bày luyện6 phút và tự giải thích lựa chọn.
 - [ ] Nộp PDF + URL GitHub trên LMS, kiểm tra xác nhận nộp.
 

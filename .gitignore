@@ -63,3 +63,7 @@ node_modules/
 /docs/video/*.webm
 /docs/video/*.ass
 /docs/video/raw/
+
+# Local LMS hand-in bundle; canonical files are tracked under output/ and docs/
+/FINAL_LMS_FINACI/
+/FINAL_LMS_FINACI.zip
