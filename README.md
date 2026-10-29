@@ -35,7 +35,7 @@ v2는 현재 잔액과 예시 전망을 구분하고, 포함·제외 항목과 �
 | A | 현금흐름 홈 | 통화별 계좌, 실제/예상 보기, 날짜별 전망, 반영된 반복 항목, 목표 카드 | 첫 화면; B로 이동; 중앙 +로 D; 시나리오로 C |
 | B | 현금흐름 일정 상세 | 예정 수입·지출, 7일/30일/목표일까지 탭, 포함·제외 설명 | Navigator push; 탭 전환 |
 | C | 급여 지연 시나리오 | 미리 작성한 기본/지연 예시 비교와 한계 안내 | showModalBottomSheet |
-| D | 빠른 기록 | 지출/수입/이체, 금액, KRW/VND 계좌, 분류, 날짜 | A/B 중앙 +의 showModalBottomSheet; 저장하지 않음 |
+| D | 빠른 기록 | 지출/수입/이체, 금액, KRW/VND/USD/EUR/JPY 예시 통화, 분류, 날짜 | A/B 중앙 +의 showModalBottomSheet; 저장하지 않음 |
 
 구현 대응: `docs/디자인가이드.md` · 셀프 논증과 증거: `docs/셀프논증.md`, `docs/prompt-log.md` · Wallet 리뷰: `docs/wallet-review-notes.md` · checklist: `docs/checklist-tien-do.md`.
 

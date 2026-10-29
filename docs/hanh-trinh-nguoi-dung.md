@@ -1,117 +1,61 @@
-# Bước 3 — User Journey hiện trạng của Wallet
+# Wallet 현행 User Journey
 
-**Phạm vi:** phân tích hành trình hiện có trong Wallet iOS 5.7.5 bằng các màn hình người dùng đã chụp. Đây chưa phải flow Finaci v2. Finaci chỉ xuất hiện ở bốn dòng mở rộng như cơ hội cải tiến.
+분석 대상은 Wallet iOS 5.7.5다. finaci는 확장 기회에만 제시하며 현행 화면으로 넣지 않는다.
 
-## Mục tiêu hành trình
+## 목표와 재구성 방식
 
-**Use case nghiên cứu Wallet:** một du học sinh Việt Nam ở Hàn Quốc muốn xem tình hình tiền KRW/VND, nhập khoản thu/chi định kỳ và hiểu số dư sắp tới có thể thay đổi ra sao trước khi lập kế hoạch. Đây là persona cụ thể để khảo sát app tham chiếu, không phải toàn bộ tệp mục tiêu global netizens của Finaci.
+한국에 거주하며 KRW/VND 수입·지출을 관리하는 유학생이 잔액과 반복 항목을 확인하고 가까운 시점의 현금 흐름을 이해하려는 과업이다. 이 persona는 finaci 전체 대상의 한 사례다.
 
-**Cách dựng thứ tự:** người dùng đã thử các flow riêng. Thứ tự Dashboard → Currency/Sync → Quick Add → Planned Payments → Budgets → Statistics/Outlook được dùng như luồng cơ bản sau đăng nhập để trình bày Journey; đây là luồng phân tích được tái dựng, không phải nhật ký một phiên thao tác liên tục.
+사용자는 각 흐름을 따로 시험했다. 로그인 뒤 기본 흐름을 바탕으로 Dashboard, Currency/Sync, Quick Add, Planned Payments, Budgets, Statistics/Outlook 순서를 재구성했다. 한 번의 연속 세션이나 소요 시간 기록은 아니다.
 
-![Wallet QANDA-style user journey in Korean: review signals, stage-linked evidence cards, and the matching app screens](wallet-user-journey-board-ko.png)
+![Wallet 현행 6단계와 리뷰·실제 화면](wallet-user-journey-board-ko.png)
 
-**Cách đọc:** đường xanh/cam tóm tắt review tích cực/tiêu cực theo từng chặng như mẫu QANDA; đây không phải điểm cảm xúc hay kết quả kiểm thử. Card ghi review liên quan; hàng ảnh bên dưới là màn Wallet người dùng đã chụp. Biểu mẫu W05/W06 đầy đủ trường vẫn được giữ riêng tại `wallet-user-journey-worksheet-ko.png` để đối chiếu với bài trên lớp.
+파랑/주황 곡선은 QANDA 예시처럼 리뷰의 긍정/부정 신호를 정성적으로 묶은 것이다. 아래의 개인 감정 점수와 구분한다. 화면은 사용자가 촬영한 Wallet이고 리뷰는 여러 지역/플랫폼의 공개 자료다.
 
-**Phân biệt bằng chứng:** màn hình là quan sát trực tiếp trên Wallet iPhone 5.7.5; review R01–R20 là phản hồi công khai từ nhiều vùng/nền tảng; trải nghiệm “muốn xem Planned Payments trong Outlook thì phải nhập lại vì hai flow không liên thông” do người dùng trực tiếp xác nhận. Review nhiều vùng không đại diện riêng cho du học sinh Việt/Hàn. Cảm xúc tổng hợp theo review là tín hiệu định tính, không phải đo usability. Vì các flow được thử riêng, không suy ra thời lượng, địa điểm hay cảm xúc của một phiên liền mạch.
+## 단계별 과업·화면·리뷰
 
-## Hành trình qua các màn Wallet (mở thành 6 bước theo mẫu W05/W06)
+| 단계 | 사용자의 과업과 실제 화면 | 연결한 리뷰와 해석 |
+|---|---|---|
+| 1. Dashboard | 계좌 grid와 Balance Trend로 현재 돈을 확인한다. Settings/Currencies에는 KRW base와 VND가 있다. | R12, 4★, 2024-03-24, Apple US: Dashboard/Statistics와 다중 통화 수기 입력 긍정. R03, 5★, 2026-06-29, US: 월초 잔액을 더 분명히 보고 싶다는 요청. |
+| 2. Currency/Sync | 통화를 추가하고 계좌 입력 방식을 고른다. 사용자는 Vietnam을 찾지 못했다. South Korea의 Show all banks에는 BUXFER·HSBC Offshore Banking·Wise가 보였다. 실제 연결은 시험하지 않았다. | R12의 일부 은행 부재, R17(5★, 2026-09-01, UK)의 FX/미동기화 상태 요청. R06/R09/R10/R18/R20의 연결·중복·잔액 불만을 리뷰 저점으로 묶었다. 현재 iOS 재현 증거는 아니다. |
+| 3. Quick Add | Expense/Income/Transfer에서 금액·계좌·분류·통화·날짜를 입력한다. Templates로 반복 입력을 줄일 수 있다. | R11, 5★, 2023-03-06, US: 차트는 좋지만 수기 입력이 오래 걸림. R13, 1★, 2026-08-29, Android: UI/분류 불편. Android 의견을 iOS 버그로 옮기지 않는다. |
+| 4. Planned Payments | 반복 수입·지출의 예정일과 통화를 본다. All/Income/Expense 필터가 있다. | R05, 3★, 2026-05-13, US: 예정 결제 알림/환불 요청. R19, 5★, 2026-03-31, UK: 날짜별 흐름 요청. Outlook 재입력을 직접 말한 리뷰는 아니다. |
+| 5. Budgets | Weekly/Monthly/Yearly/One-Time 예산과 사용률을 본다. 사용자는 월 시작일을 바꾸지 못해 중간 시작 시 맞지 않았다고 보고했다. | R16, 5★, 2026-08-24, UK: 예산과 여러 수입원 관리의 유연성 긍정. R15, 5★, 2026-04-01, Android: 옵션이 많아 단순 작업도 번거롭다는 의견. 시작일 직접 리뷰는 없다. |
+| 6. Statistics/Outlook | Balance/Spending/Cash Flow/Outlook을 본다. 사용자는 Planned Payments의 항목을 Outlook에서 보려면 다시 입력해야 했다고 확인했다. | R11의 수입·지출 비교, R03의 잔액 표시 요청은 인접 근거다. R01–R20에는 Outlook/목표일 전망의 직접 리뷰가 없다. 개인 경험을 별도 근거로 둔다. |
 
-### 1. Mở Dashboard để xem tiền hiện có
+![Dashboard, 금액 가림](screenshots/journey/wallet-dashboard-redacted.jpg)
+![Currencies](screenshots/journey/wallet-currencies.jpg)
+![South Korea 표시 결과](screenshots/journey/wallet-bank-list.jpg)
+![Quick Add](screenshots/journey/wallet-quick-add.jpg)
+![Planned Payments, 금액 가림](screenshots/journey/wallet-planned-payments-redacted.jpg)
+![Budgets, 금액 가림](screenshots/journey/wallet-budget-redacted.jpg)
+![Statistics, 금액 가림](screenshots/journey/wallet-statistics-redacted.jpg)
 
-**Mục tiêu chặng:** nhìn số dư và nguồn tiền hiện có trước khi lập kế hoạch.
+## 수업 확장 worksheet
 
-**Màn hình:** Dashboard có account grid và Balance Trend; Settings → Currencies cho thấy KRW là base currency, VND đã được thêm.
+W05/W06의 단계·위치·사용 기기·AI 활용 기회·어긴 원칙 후보·필요 데이터·감정 항목을 유지한다. 실제 위치는 기록하지 않았다. P07을 주원칙, P06을 보조로 고른 것은 사용자가 확인한 결정이다. 다른 P번호는 검토 후보다.
 
-![Wallet Dashboard, số dư đã che](screenshots/journey/wallet-dashboard-redacted.jpg)
-
-**Review gắn chặng:** R03 · 5★ · 2026-06-29 · Apple US/iOS muốn thấy rõ “how much money we are starting the month with”. R12 · 4★ · 2024-03-24 · Apple US/iOS khen Dashboard/Statistics và nhập tay nhiều tiền tệ. Đây là một phản hồi về visibility và một phản hồi tích cực; không review nào nói riêng về tài chính du học sinh.
-
-### 2. Cấu hình tiền tệ và chọn cách thêm tài khoản
-
-**Mục tiêu chặng:** giữ các nguồn tiền theo đúng currency và xem có thể nối ngân hàng hay phải nhập tay.
-
-**Màn hình:** KRW base, VND trong Currencies. Bank Sync yêu cầu chọn quốc gia; ảnh của người dùng ghi nhận country list không có Việt Nam và South Korea chỉ hiện ba lựa chọn sau “Show all banks”: BUXFER, HSBC Offshore Banking, Wise. Chưa thử kết nối thật.
-
-![Wallet Currencies](screenshots/journey/wallet-currencies.jpg)
-
-![Danh sách ngân hàng sau khi chọn South Korea](screenshots/journey/wallet-bank-list.jpg)
-
-**Review gắn chặng:** R12 · 4★ · 2024-03-24 · Apple US/iOS nêu thiếu một số ngân hàng; R17 · 5★ · 2026-09-01 · Apple UK/iOS khen hiển thị đa tiền tệ nhưng muốn biết giao dịch ngoại tệ đang chờ và lý do chưa đồng bộ. Đây là phản hồi ở thị trường khác; độ phủ ngân hàng phụ thuộc khu vực và đối tác.
-
-**Điểm thấp theo mẫu review:** các phàn nàn về kết nối/độ chính xác dữ liệu tập trung ở R06 (1★), R09 (1★), R10 (2★), R18 (1★), R20 (2★). Chúng được gắn ở bước tài khoản/đồng bộ như tín hiệu review; khác vùng, một số đã cũ, và chưa chứng minh lỗi còn tồn tại trên iOS 5.7.5.
-
-### 3. Ghi giao dịch bằng Quick Add
-
-**Mục tiêu chặng:** ghi một khoản Expense, Income hoặc Transfer với đúng account, category, currency và ngày.
-
-**Màn hình:** Quick Add có Expense, Income, Transfer và các trường account/category/currency.
-
-![Wallet Quick Add](screenshots/journey/wallet-quick-add.jpg)
-
-**Review gắn chặng:** R11 · 5★ · 2023-03-06 · Apple US/iOS khen biểu đồ nhưng thấy nhập tay tốn thời gian. R13 · 1★ · 2026-08-29 · Google Play US query/Android gọi UI là khó hiểu và nêu vấn đề nhập/tùy chỉnh ngân hàng. R13 khác nền tảng, không xem là lỗi đã xác nhận trên iOS.
-
-### 4. Xem các khoản thu/chi dự kiến trong Planned Payments
-
-**Mục tiêu chặng:** xem khoản đã khai báo, ngày dự kiến và currency trước khi hiểu số dư tương lai.
-
-**Màn hình:** danh sách Planned Payments có các khoản định kỳ và bộ lọc All/Income/Expense.
-
-![Wallet Planned Payments, số tiền đã che](screenshots/journey/wallet-planned-payments-redacted.jpg)
-
-**Review gắn chặng:** R05 · 3★ · 2026-05-13 · Apple US/iOS nói không nhận push cho khoản sắp thanh toán. R19 · 5★ · 2026-03-31 · Apple UK/iOS đề nghị xem lịch thu/chi theo ngày. Đây là phản hồi về nhắc/lịch, không trực tiếp xác nhận trải nghiệm Outlook.
-
-### 5. Đặt ngân sách theo kỳ
-
-**Mục tiêu chặng:** đặt hạn mức chi tiêu và xem mức sử dụng.
-
-**Màn hình:** Budgets cho chọn Weekly, Monthly, Yearly hoặc One-Time và theo dõi theo category. Trong lần trải nghiệm, người dùng báo kỳ tháng mặc định từ ngày 1 đến cuối tháng và không chỉnh được ngày bắt đầu; bắt đầu sử dụng giữa tháng không khớp chu kỳ mong muốn. Đây là trải nghiệm trực tiếp, nhưng chưa có review trong mẫu nói cụ thể về ngày bắt đầu ngân sách.
-
-![Wallet Budgets, số liệu đã che](screenshots/journey/wallet-budget-redacted.jpg)
-
-**Review gắn chặng:** R16 · 5★ · 2026-08-24 · Apple UK/iOS khen app linh hoạt cho ngân sách và nhiều nguồn thu. R15 · 5★ · 2026-04-01 · Google Play US/Android nói có quá nhiều lựa chọn khiến một số việc đơn giản rườm rà; khác nền tảng và không nhắc riêng chu kỳ ngân sách.
-
-### 6. Mở Statistics/Outlook để hiểu số dư tương lai
-
-**Mục tiêu chặng:** sau khi nhập khoản định kỳ, đọc được tình hình tiền ở một mốc tương lai để tự quyết định kế hoạch.
-
-**Màn hình:** Statistics có các thẻ Balance, Spending, Cash Flow, Outlook. Người dùng xác nhận Planned Payments được theo dõi riêng; muốn xem khoản đó trong Outlook thì phải nhập lại vì hai flow không liên thông. Ảnh thẻ OUTLOOK ₩0.00 là bằng chứng màn hình tại thời điểm chụp, không tự nó giải thích cơ chế dữ liệu.
-
-![Wallet Statistics, số tiền đã che](screenshots/journey/wallet-statistics-redacted.jpg)
-
-**Review gắn chặng:** R11 · 5★ · 2023-03-06 · Apple US/iOS khen biểu đồ/so sánh thu chi; R03 · 5★ · 2026-06-29 · Apple US/iOS muốn thấy rõ số dư đầu tháng. Đây là tín hiệu lân cận về cách hiểu dòng tiền; **R01–R20 không có review trực tiếp về Outlook hoặc mô phỏng từ khoản định kỳ**.
-
-**Điểm rối cá nhân đã xác nhận:** dữ liệu Planned Payments không xuất hiện trong Outlook; muốn xem ở đó phải nhập lại. Đây là trải nghiệm người dùng, không được gán thành kết luận của review.
-
-**Kết thúc tác vụ hiện trạng:** trong các màn Wallet đã khảo sát không thấy Goals; Wallet Help Center ghi Goals chưa khả dụng trên iOS. Vì vậy hành trình hiện tại không hoàn tất việc lập mục tiêu có hạn ngay trong Wallet iOS. Đây là khoảng trống chức năng theo nền tảng, không phải lỗi giao diện được suy ra chỉ từ ảnh More.
-
-## Đường cảm xúc và review low point
-
-- **Low point theo mẫu review:** bước 2, account linking/sync/data accuracy, nơi có năm review 1–2★ liên quan lỗi kết nối, giao dịch trùng hoặc sai số dư. Đây là tín hiệu từ mẫu đa vùng/nền tảng, không khẳng định trải nghiệm cá nhân của người dùng hay lỗi hiện hành.
-- **Low point trong trải nghiệm người dùng:** bước 6, Planned Payments và Outlook không liên thông; người dùng phải nhập khoản lần nữa để dùng ở Outlook. Đây là lời kể trực tiếp; không có review trực tiếp tương ứng.
-- Không gộp hai nguồn trên thành một đường cong cảm xúc có vẻ như đã đo bằng khảo sát. Board chú giải riêng để tránh gây hiểu nhầm.
-
-## Bốn dòng mở rộng theo mẫu W05/W06 — theo từng bước; hướng v2, không phải màn Wallet
-
-Mẫu W05/W06 yêu cầu bảng theo bước: **단계 · 위치 · 사용 기기 · AI 기회 · 어긴 원칙 · 필요 데이터 · 감정 -2~+2**. Bảng dưới giữ dữ liệu cá nhân và suy luận riêng; địa điểm thực tế chưa được ghi nhận; đây không phải biến gây trở ngại chính của tác vụ này. P07 chính/P06 phụ ở bước 6 đã được người dùng chọn; các nguyên tắc ở bước khác là tiêu chí phân tích, không phải mọi lỗi Wallet đã được xác nhận.
-
-| Bước | Vị trí | Thiết bị | Cơ hội AI / Finaci v2 | Nguyên tắc cần kiểm tra | Dữ liệu cần | Cảm xúc nháp* |
+| 단계 | 위치 | 사용 기기 | AI/finaci v2 기회 | 원칙 후보 | 필요 데이터 | 회고형 감정 |
 |---|---|---|---|---|---|---:|
-| 1. Dashboard | Chưa ghi nhận | iPhone · Wallet 5.7.5 | Giải thích số dư nhiều currency trong một ngữ cảnh | P01: phân biệt số dư hiện tại/quy đổi | Số dư theo account, currency, timestamp và giả định tỷ giá | **0 (ước lượng AI đã được người dùng chấp thuận; thiếu nhận xét riêng)** |
-| 2. Currency/Sync | Chưa ghi nhận | iPhone · Wallet 5.7.5 | Hướng dẫn nhập tay khi không có kết nối phù hợp; AI không thay thế partnership | P09: thông báo/khôi phục; chỉ xem xét v2 | Quốc gia, nguồn tiền, currency, phương thức nhập | **-1 (AI ước lượng từ độ phủ Việt Nam/Hàn Quốc đã quan sát)** |
-| 3. Quick Add | Chưa ghi nhận | iPhone · Wallet 5.7.5 | Chuyển lời nói/tự nhiên thành nháp giao dịch | P07: hiệu quả nhập liệu | Số tiền, currency, loại giao dịch, ngày, category | **0 (ước lượng AI đã được người dùng chấp thuận; thiếu nhận xét riêng)** |
-| 4. Planned Payments | Chưa ghi nhận | iPhone · Wallet 5.7.5 | Giải thích dòng tiền dự kiến từ khoản lặp đã nhập | P01: phân biệt khoản dự kiến với thực tế | Khoản lặp, số tiền, kỳ, ngày đến hạn, currency | **0 (AI ước lượng; khó khăn được kể nằm ở Outlook)** |
-| 5. Budgets | Chưa ghi nhận | iPhone · Wallet 5.7.5 | Giải thích mục tiêu cần dành bao nhiêu theo thời hạn | P06: giúp nhận biết thay vì tự nhớ/tính | Hạn mức, thời kỳ, ngày bắt đầu, chi thực tế | **-1 (AI ước lượng từ việc không chỉnh được ngày bắt đầu tháng)** |
-| 6. Statistics/Outlook | Chưa ghi nhận | iPhone 14 Pro Max · Wallet 5.7.5 | So sánh kịch bản lương trễ bằng phản hồi soạn sẵn | P07: tránh nhập lặp; P06 phụ: khoản đã có cần được nhận biết ở Outlook | Số dư, khoản đã biết, mốc dự báo, giả định tỷ giá, kịch bản | **-2 (AI ước lượng từ khó hiểu, phải tự nối/tính và nhập lại)** |
+| 1. Dashboard | 미기록 | iPhone 14 Pro Max, Wallet5.7.5 | 여러 통화 잔액 설명 | P01 현재/환산 구분 | 계좌·통화·시점·환율 가정 | 0 |
+| 2. Currency/Sync | 미기록 | 동일 | 연결이 없을 때 수기 대안 안내 | P09 복구/대안 | 국가·통화·입력 방식 | -1 |
+| 3. Quick Add | 미기록 | 동일 | 자연어를 거래 초안으로 정리 | P07 입력 효율 | 금액·통화·유형·날짜·분류 | 0 |
+| 4. Planned Payments | 미기록 | 동일 | 반복 항목 기반 전망 설명 | P01 예정/실제 구분 | 반복 주기·금액·예정일·통화 | 0 |
+| 5. Budgets | 미기록 | 동일 | 기한과 목표의 관계 설명 | P06 기억 부담 | 한도·기간·시작일·실제 지출 | -1 |
+| 6. Statistics/Outlook | 미기록 | 동일 | 미리 쓴 급여 지연 예시 비교 | P07 재입력 감소, P06 재인 | 잔액·항목·목표일·환율·시나리오 | -2 |
 
-\* Dãy điểm trên là **ước lượng của AI từ bằng chứng trải nghiệm người dùng đã kể**, theo yêu cầu người dùng cho AI chấm nháp; người dùng đã xem và đồng ý giữ bản nháp. Đây không phải câu trả lời cảm xúc trực tiếp hay tự chấm của người dùng. Các điểm 0 là thiếu nhận xét cụ thể, không có nghĩa người dùng đã nói “bình thường”. Không dùng review stars thay cho cảm xúc cá nhân. Low point theo cụm review là bước 2; khó khăn do người dùng trực tiếp nêu nằm ở bước 6. Hai nguồn được giữ riêng.
+점수는 AI가 사용자의 경험 설명으로 초안을 작성한 뒤 사용자가 검토하고 채택한 **회고형 주관 평정**이다(L032–L033, L051). 점수 제안의 AI 기여를 숨기지 않는다. 별도 시험에서 즉시 응답한 원자료나 여러 참여자의 평균으로 쓰지 않는다. 0점 단계는 구체적인 불편 보고가 없었던 단계로 제안한 값이다.
 
-## Nguồn và mức chắc chắn
+![수업 확장 worksheet](wallet-user-journey-worksheet-ko.png)
+![단계별 리뷰와 화면 근거](wallet-user-journey-review-evidence-ko.png)
 
-- **Quan sát trực tiếp:** 21 ảnh Wallet iPhone 5.7.5 do người dùng gửi ngày 2026-10-28; người dùng đã thử hầu hết flow riêng. Màn hình cho thấy giao diện, không chứng minh mọi hành vi; model là iPhone 14 Pro Max, iOS mới nhất tại thời điểm chụp nhưng chưa ghi số phiên bản.
-- **Trải nghiệm do người dùng kể:** Planned Payments phải nhập lại để dùng ở Outlook; kỳ ngân sách tháng không chỉnh được ngày bắt đầu.
-- **Review công khai:** R01–R20 trong `docs/wallet-review-notes.md`, mẫu nhiều khu vực và nền tảng; ghi rõ ngày/sao/nguồn.
-- **AI/Finaci:** chỉ là cơ hội mở rộng ở bốn dòng cuối. Không có concept screen Finaci nào nằm trong hành trình Wallet hiện trạng.
+## 두 최저점과 분석 우선순위
 
-## Căn cứ khóa cách làm
+- 리뷰 최저점은 2단계 Sync다. R06/R09/R10/R18/R20의 1–2★ 의견이 모인다. 과거·다지역 표본으로 현재 iOS 문제 발생률을 뜻하지 않는다.
+- 개인 과업 최저점은 6단계다. 이미 입력한 예정 항목을 Outlook에서 쓰기 위해 재입력한 경험과 -2 평정이 근거다.
+- Fishbone는 직접 경험했고 UI 범위에서 설명 가능한 6단계를 선택했다. 리뷰 빈도가 가장 높은 주제와 다르다는 이유를 발표에서 밝힌다.
+- Goals는 관찰한 iOS 화면에서 찾지 못했고 2026-10-28 확인한 Help Center도 iOS 미지원으로 표시했다. Android까지 없다고 일반화하지 않는다.
 
-W05/W06 LAB A yêu cầu 6 bước trở lên và bảng mở rộng theo bước; Fishbone/5 Why phải bắt đầu từ một bước low point. W07 ①-3 yêu cầu gắn review theo bước và nêu low point dựa trên lượng review phàn nàn. Vì vậy tài liệu này lấy Wallet hiện trạng; ý tưởng Finaci chỉ xuất hiện ở các hàng mở rộng và phần summary/v2. Bản hiện tại ghi riêng low point theo review (bước 2) và khó khăn người dùng trực tiếp nêu (bước 6); Fishbone đang nối với bước 6 theo lời kể trực tiếp. Quyết định đã chốt ở L035 và tự luận 1: giữ bước 2 làm low point theo review, chọn bước 6 cho Fishbone vì đây là khó khăn tác vụ trực tiếp, phù hợp sửa ở mức UI. Không đổi review low point thành Outlook để làm đẹp mạch kể. L046 ghi nhận việc hoàn thiện diễn giải này.
+## 출처와 범위
+
+사용자가 2026-10-28 제공한 21개 캡처와 경험 설명, R01–R20, W05 p17/W06 pp9–10/W07 ①-3을 사용했다. 숫자 iOS 버전·위치·연속 세션 시간은 미기록이다. 화면만으로 Outlook 내부 계산이나 공통 데이터 구조를 단정하지 않는다. `wallet-review-notes.md`, `prompt-log.md` L029–L035/L046/L051을 함께 참조한다.

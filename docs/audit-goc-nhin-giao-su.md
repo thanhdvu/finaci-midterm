@@ -1,61 +1,61 @@
-# Đánh giá bộ nộp finaci theo góc nhìn người chấm
+# finaci 최종 제출물 검토
 
-Ngày 29/10/2026. Đây là đánh giá mô phỏng dựa trên đề, template và tài liệu lớp; không phải điểm chính thức của giáo sư.
+2026-10-29. 수업 공지·템플릿·제출물을 대조한 보조자의 평가다. 실제 성적은 담당 교수가 정한다.
 
-## Kết luận
+## 종합 판단
 
-Bộ bài có đủ các nhóm đầu ra chính và có thể chuẩn bị nộp. Cấu trúc theo template thực tế của lớp và phạm vi UI-only đã được đối chiếu. Không nên nói “đúng 100% và chắc chắn đủ điểm”: bằng chứng nghiên cứu vẫn có giới hạn và phần trình bày chưa được quan sát.
+필수 산출물의 큰 틀과 UI 구현 범위를 갖췄으며 제출을 준비할 수 있다. 표지와 색상은 finaci에 맞게 바꾸고 수업의 본문·부록 구성을 유지했다. PPTX/PDF는 31장이다. 원칙별 카드와 화면별 요소표를 늘린 확장본이므로 원본 템플릿의 모든 물리적 페이지와 일대일로 같다는 의미는 아니다.
 
-Deck có 31 trang gồm bìa, nội dung chính, Q&A và B1–B5. Số trang tăng do thêm phần Flutter và nhân bản phụ lục theo từng nguyên tắc/màn như chỉ dẫn trong mẫu. Đây là bản điều chỉnh template, không phải bản sao nguyên xi từng trang của file gốc. Màu và bìa đã đổi theo Finaci.
+남은 일은 발표자가 6분 안에 설명하는 연습과 LMS 제출이다. 연구 자료의 한계와 구현 범위를 스스로 설명해야 한다.
 
-## Đối chiếu yêu cầu và format
+## 요구사항과 형식 대조
 
-| Hạng mục | Kết luận | Bằng chứng và giới hạn |
+| 항목 | 판정 | 근거와 한계 |
 |---|---|---|
-| Phân tích Wallet | Đạt đầu ra | Ảnh thật, phiên bản, điểm mạnh nối Nielsen; tách quan sát và giả thuyết. Số iOS cụ thể/vị trí dùng chưa ghi. |
-| Điểm sao và review | Đạt đầu ra | 20 review có ngày, sao, nguồn/khu vực, ẩn tác giả và phân loại; histogram có ảnh gốc. Mẫu nhiều vùng và có review cũ, không đại diện mọi người dùng hiện tại. |
-| App summary một trang | Đạt | Mục tiêu, đối tượng/persona, vấn đề và giá trị v2. VND–KRW là dữ liệu prototype cho một trường hợp. |
-| User Journey | Đúng khung, còn giới hạn | Sáu bước Wallet, ảnh/review và các dòng mở rộng. Outlook không có review trực tiếp; cảm xúc là AI ước lượng được cho phép, không phải đo trực tiếp. |
-| Fishbone và 5 Why | Đúng khung | Sáu góc nhìn và một ưu tiên. Why 3–5 là giả thuyết UX, không chứng minh nguyên nhân kỹ thuật Wallet. |
-| Screen plan và guide | Đạt | A/B/C/D có element ID, widget, tên nghiệp vụ, thông tin/thứ tự, P-number và lý do, convenience, guide và STATE. |
-| Self argument | Đủ cấu trúc | Bốn vấn đề có luận điểm, phản biện, sửa/giữ, căn cứ và trước/sau. Phần trợ lý bổ sung được ghi rõ; người trình bày phải tự hiểu và bảo vệ lựa chọn. |
-| Flutter | Đạt phạm vi đã kiểm tra | Widget cơ bản, Navigator/TabBar/BottomSheet, GET local, loading/error/empty/retry và responsive. Không có lưu, AI hay thuật toán tài chính thật. |
-| Slide/PDF | Đạt bộ nộp | Bìa đã căn lại; các bảng theo mẫu lớp. Phụ lục dày nên cần zoom đúng bằng chứng, không đọc cả bảng khi chiếu. |
-| Video | Đạt | MP4 60 giây nằm trong PPTX ở slide 10. PDF có poster/link, không phát video nhúng. |
-| Code, docs, README | Đạt | Repo có Flutter, db.json, hướng dẫn chạy/demo, guide, principle cards, prompt-log, self argument và tự đánh giá. |
-| Vercel | Đạt kỹ thuật | Web/API cùng project, truy cập công khai, GET trả JSON, request ghi bị từ chối. Đề xuất +5; điểm cộng cuối do thầy áp dụng. |
-| Trình bày và LMS | Người dùng chưa thực hiện | Đã có script/Q&A; chưa rehearsal thực tế 6 phút và chưa xác nhận submit LMS. |
+| Wallet 현행 분석 | 산출물 있음 | 실제 캡처·버전·장점·Nielsen 연결. iOS의 정확한 숫자 버전과 사용 위치는 미기록이다. |
+| 평점과 리뷰 | 산출물 있음 | 익명 R01–R20, 날짜·별점·지역·출처·유형, Play 원본 histogram. 다지역·과거 리뷰가 포함된 편의 표본이다. |
+| 한 페이지 앱 요약 | 충족 | 목표·대상/persona·문제·v2 핵심 가치. VND/KRW는 대표 사례 데이터다. |
+| User Journey | 수업 틀 반영 | Wallet 6단계, 화면·리뷰·확장 항목. 감정은 AI 초안을 사용자가 검토·확정한 회고형 주관 평정이다. Outlook 직접 리뷰는 없다. |
+| Fishbone·5 Why | 수업 틀 반영 | 6개 시각과 우선순위 1개. Why 3–5는 UX 가설이며 Wallet 내부 기술 원인을 증명하지 않는다. |
+| 화면 기획·가이드 | 충족 | A/B/C/D의 요소 ID·위젯·업무명·정보 기준·P번호/이유·편의성·가이드·STATE. |
+| 셀프 논증 | 구조 충족 | 4개 쟁점의 주장·반론·재반론/수정·결론·근거·전후. 위임 작성 부분의 출처를 구분했다. |
+| Flutter | 확인한 범위 충족 | 기본 위젯, Navigator/TabBar/BottomSheet, 로컬 GET, loading/error/empty/retry, 화면 너비별 배치. |
+| PPTX/PDF | 제출 파일 있음 | 표지 재배치, 수업 표와 부록. 세부 부록은 발표 중 전부 읽지 않고 질문에 맞춰 연다. |
+| 데모 영상 | 충족 | 60초 MP4를 PPTX 10장에 포함. PDF는 포스터/링크로 열며 영상 자체를 재생하지 않는다. |
+| 코드·문서·README | 충족 | Flutter, db.json, 실행/시연 안내, 가이드·원칙 카드·prompt-log·논증·자가평가. |
+| Vercel | 기술 조건 확인 | 공개 웹과 같은 프로젝트의 GET API, 쓰기 요청 403. +5 적용은 교수 판단이다. |
+| 발표·LMS | 실제 수행 전 | 대본과 Q&A는 준비했다. 실제 리허설 시간과 LMS 제출 완료는 아직 확인하지 않았다. |
 
-## Góc nhìn về hình thức và mức độ hiểu bài
+## 형식과 설명의 설득력
 
-Điểm thuyết phục là trải nghiệm Wallet cụ thể, có lý do bỏ Bank Sync khỏi trọng tâm, giữ ưu điểm Wallet và sửa ví dụ tài chính sai logic. Bìa và font giúp bài nhất quán nhưng không chứng minh người làm hiểu bài.
+개인 Wallet 경험에서 문제를 구체화하고, Bank Sync보다 재입력을 우선한 이유가 드러난다. 계좌 카드와 중앙 + 등 Wallet의 장점도 유지했다. 급여가 목표일을 넘겨 들어오는 예시로 조건을 바로잡아 데이터의 의미를 설명한다.
 
-Điểm dễ tạo cảm giác phụ thuộc AI là nhiều thuật ngữ và bảng. Nếu chỉ đọc bảng hoặc không giải thích được tradeoff, bài vẫn thiếu dấu ấn cá nhân. Script mới nói về quá trình chọn và lý do, thay vì đọc từng dòng slide.
+감정 점수 0 / -1 / 0 / 0 / -1 / -2는 사용자가 채택한 회고형 평가로 활용한다. AI가 초안을 제시한 과정도 기록한다. 별도의 통제된 사용성 시험에서 얻은 수치나 다수 사용자의 평균으로 해석하지 않는다. 이 점수 자체를 미완성 항목으로 남겨 두지 않는다.
 
-Sản phẩm đa quốc gia/đa tiền tệ chưa đồng nghĩa đã kiểm chứng nhiều thị trường. Giao diện có năm lựa chọn tiền mẫu; dữ liệu VND–KRW là một persona. Không được trình bày rằng mọi quốc gia, ngân hàng hay tỷ giá đều đã hỗ trợ thật.
+표와 전문 용어가 많아 그대로 읽으면 선택의 이유가 가려질 수 있다. 대본은 경험·선택·수정 이유를 중심으로 작성했다. 디자인만으로 작성 주체나 이해도를 판별할 수는 없다. 발표자가 근거의 한계를 자기 말로 설명하는 것이 중요하다.
 
-## Rubric tham khảo
+finaci의 대상은 다국가·다중 통화 사용자다. KRW/VND는 시연 사례이고 빠른 기록에는 USD/EUR/JPY 예시도 있다. 모든 국가·은행의 연결이나 실제 환전을 구현했다는 뜻은 아니다.
 
-| Lĩnh vực | Mức tự đánh giá | Lý do chưa trọn điểm |
+## 배점에 따른 잠정 평가
+
+| 영역 | 잠정 | 판단 근거 |
 |---|---|---|
-| Kế hoạch 40 | 35/40 | Review đa vùng/cũ, thiếu review Outlook trực tiếp; cảm xúc chưa đo và 5 Why còn giả thuyết. |
-| Tự lập luận 20 | 17/20 | Có cấu trúc và căn cứ. Quan điểm trợ lý soạn thêm không thay thế khả năng tự phản biện khi bị hỏi. |
-| Flutter 25 | 23/25 | Đủ kỹ thuật chính, bám guide; là prototype có chủ đích, chưa có usability test. |
-| Trình bày 15 | Chưa chấm thực hiện | 11/15 chỉ là dự kiến chuẩn bị. Phải nghe nói, xem demo và Q&A mới chấm được. |
-| Vercel | Đề xuất +5 | Có bằng chứng kỹ thuật; không cộng nhầm bonus cache/thiết bị của bài tuần. |
+| 기획 40 | 35/40 | 수업 산출물은 갖췄다. 여러 지역·과거 리뷰, Outlook 직접 리뷰 부재, 뒤쪽 Why의 가설 범위가 한계다. |
+| 셀프 논증 20 | 17/20 | 구조와 판단 근거가 있다. 초기 실행 캡처가 없고 발표 중 실제 반론 대응은 아직 관찰하지 않았다. |
+| Flutter 25 | 23/25 | 필수 기술·금지 범위를 지켰다. 확인한 웹 화면 너비 외의 기기/환경까지 검증한 결과는 아니다. |
+| 발표 15 | 수행 전 | 준비 상태를 11/15로 가정할 수 있으나 실제 설명·시간·Q&A 후에 점수를 정해야 한다. |
+| Vercel | +5 제안 | 웹·GET API·쓰기 거절을 확인했다. 주간 과제의 캐시/두 번째 기기 가산을 더하지 않는다. |
 
-Phần nội dung/triển khai hiện tự đánh giá 75/85. Nếu trình bày được 11/15 và thầy chấp nhận +5 thì tổng là 91. Đây là phép tính tham khảo, không phải lời hứa điểm.
+내용·구현은 잠정 75/85다. 발표가 11/15이고 +5가 인정되는 경우 91점에 해당한다. 이는 준비 상태에 대한 참고 계산이며 점수 보장이 아니다.
 
-## Ba câu cần tự trả lời
+## 발표에서 설명할 세 가지
 
-1. Vì sao review phàn nàn Sync nhiều mà chọn Outlook? Vì trải nghiệm trực tiếp, khả năng cải thiện UI và phạm vi môn; không gọi nó là vấn đề lớn nhất của mọi người.
-2. App toàn cầu mà dữ liệu chỉ VND/KRW? Đây là bộ dữ liệu minh họa. Quick Add có thêm USD/EUR/JPY nhưng chưa chứng minh phù hợp mọi thị trường.
-3. Dự báo đáng tin không? Là kết quả tĩnh với giả định và khoản loại trừ. Lương 25/2 trễ đến 4/3 vượt ngày mục tiêu 28/2 nên hai kết quả khác nhau.
+1. Sync 리뷰가 더 많은데 Outlook을 고른 이유: 직접 겪은 과업이며 수업의 UI 범위에서 개선 과정을 설명할 수 있기 때문이다. 모든 사용자의 최대 문제라고 주장하지 않는다.
+2. 글로벌 앱인데 KRW/VND를 쓰는 이유: 대표 persona의 시연 데이터다. 다른 국가의 사용성까지 검증했다는 뜻은 아니다.
+3. 전망값의 의미: 고정 예시와 가정이다. 2월 25일 급여가 3월 4일로 늦어져 목표일 2월 28일을 넘는 조건을 비교한다.
 
-## Script và nộp bài
+## 제출과 발표 자료
 
-Script tiếng Hàn là bản nói tự nhiên, có hành động chỉ tay/phát video và Q&A. Video 60 giây đã tính trong mục tiêu 6 phút. Đây chưa phải thời gian rehearsal; người nói chậm cần tập và rút ví dụ nếu quá giờ.
+LMS에는 01_제출용의 발표 PDF를 올리고 GitHub URL을 입력한다. 02_발표용에는 PPTX·MP4·한국어 대본이 있고, 03_최종점검에는 이 평가 문서가 있다. ZIP은 전체 폴더의 백업이므로 LMS가 PDF와 URL만 요구한다면 ZIP 전체를 올릴 필요는 없다.
 
-Upload PDF trong 01_NOP_LEN_LMS và dán GitHub URL theo ô LMS. PPTX, video và script trong 02_THUYET_TRINH dùng để tập/trình bày; audit trong 03_TU_KIEM_TRA dùng tự rà. Không cần upload toàn bộ ZIP nếu LMS chỉ yêu cầu PDF và URL.
-
-Hạn theo đề: trước 15:00 ngày 29/10/2026, giờ Hàn Quốc. Sau khi bấm nộp cần kiểm tra xác nhận của LMS.
+공지의 마감은 한국 시간 2026-10-29 15:00 전이다. 실제 제출 확인은 LMS에서 해야 한다.

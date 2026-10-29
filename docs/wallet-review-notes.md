@@ -1,164 +1,89 @@
-# Wallet review research — snapshot ban đầu
+# Wallet 공개 리뷰 분석
 
-Ngày thu thập: **2026-10-28 (KST)**. Tên người viết review đã lược bỏ; dùng mã R01–R20. Đây là mẫu thuận tiện lấy từ phần review công khai đang hiển thị, không đại diện cho mọi người dùng. Phân loại/Nielsen do AI hỗ trợ; trọng tâm P07 chính/P06 phụ đã được người dùng chốt sau khi đối chiếu trải nghiệm Wallet 5.7.5. Các review lịch sử vẫn giữ giới hạn theo vùng và phiên bản.
+수집일2026-10-28 KST. 작성자 이름을 지우고 R01–R20을 부여했다. 화면에 공개된 리뷰의 편의 표본이며 전체 사용자/현재 버전의 발생률을 뜻하지 않는다. 원문 짧은 인용은 원래 언어로 보존하고 설명은 한국어로 작성했다. 따옴표 밖은 요약이다.
 
-## Store và giới hạn dữ liệu
+## 스토어·지역별 수치
 
-| Store / khu vực | Điểm và lượt đánh giá tại ngày lấy | Phân bố sao | Ghi chú |
-|---|---:|---|---|
-| Apple App Store / KR / iOS | **4.8/5, 38 ratings** | Trang KR và lookup công khai chỉ cho điểm trung bình + tổng số; không thấy histogram sao. | Trang KR chỉ hiển thị 2 review có nội dung; cả hai 5★, cũ và ít giá trị UX. Không thể suy ra phân bố từ trung bình. |
-| Apple App Store / US / iPhone | **4.6/5, 5.9K ratings** | Không hiển thị phân bố sao trên trang review công khai. | Đọc được 10 review; ngày/sao có trên từng thẻ. Một số review cũ; ghi năm đúng theo trang. Bổ sung góc nhìn iOS quốc tế, không nhập chung với KR. |
-| Apple App Store / UK / iPhone | **4.5/5, 889 ratings** | Không hiển thị phân bố sao trên trang review công khai. | Có 10 review trên trang; lấy 5 review (R16–R20) để đạt mốc 20 của hướng dẫn thực hành W07. Ghi rõ UK, không nhập vào KR. |
-| Google Play / US query / Android | **4.6/5, 388K reviews** ở phần tổng quan; bộ lọc Phone hiển thị **4.7/5, 380K reviews**. | Phone: 5★ 316,980 (83.44%); 4★ 27,465 (7.23%); 3★ 8,844 (2.33%); 2★ 7,078 (1.86%); 1★ 19,487 (5.13%). Các số sao cộng thành 379,854, xấp xỉ số làm tròn 380K. | Giữ cả hai con số theo vùng hiển thị trong Play, không trộn với iOS. Review mẫu Android được ghi riêng. URL có `hl=en&gl=US`; đây là vùng truy vấn, không xác nhận quốc tịch người viết. |
-
-Nguồn chính: [Apple App Store KR](https://apps.apple.com/kr/app/wallet-%EA%B0%9C%EC%9D%B8-%EA%B8%88%EC%9C%B5/id1032467659), [Apple App Store US — reviews](https://apps.apple.com/us/app/wallet-daily-budget-profit/id1032467659?platform=iphone&see-all=reviews), [Apple App Store UK — reviews](https://apps.apple.com/gb/app/wallet-budget-money-manager/id1032467659?platform=iphone&see-all=reviews), [Google Play US query](https://play.google.com/store/apps/details?id=com.droid4you.application.wallet&hl=en&gl=US). Số liệu là snapshot truy cập ngày 2026-10-28; W07 yêu cầu capture histogram sao khi store cung cấp. App Store không công khai histogram trên các trang KR/US/UK; không suy diễn phân bố Apple từ điểm trung bình. Google Play có histogram riêng cho Android.
-
-## Bổ sung histogram gốc — 2026-10-29 (KST)
-
-![Google Play US Phone rating distribution, original browser capture](screenshots/store/google-play-us-phone-2026-10-29.png)
-
-Nguồn: [Google Play US, bộ lọc Phone](https://play.google.com/store/apps/details?id=com.droid4you.application.wallet&hl=en_US&gl=US). Đây là snapshot mới ngày 2026-10-29, tách với review R01–R20 và số liệu ngày 2026-10-28 ở trên. Ảnh được cắt từ giao diện store, không dựng lại histogram.
-
-| Snapshot mới | Giá trị |
-|---|---:|
-| Điểm bộ lọc Phone trên ảnh | 4.6/5 |
-| Số lượt Phone được làm tròn trên ảnh | 380K |
-| 5★ (giá trị accessibility của store) | 317,051 |
-| 4★ | 27,451 |
-| 3★ | 8,845 |
-| 2★ | 7,079 |
-| 1★ | 19,472 |
-| Tổng số đếm chính xác | 379,898 |
-
-Header app 388K là số tổng quan khác phạm vi. Không trộn 388K với mẫu Phone; không gộp Android với Apple hoặc vùng khác. Giá trị chính xác được đọc từ accessibility của trang; các thanh sao và số làm tròn có trong ảnh gốc. Không đổi ngày review để làm chúng trông mới hơn. App version không được hiển thị cho mọi review, vì vậy ghi là chưa có thay vì suy đoán.
-
-## Review đã mã hóa
-
-Trích dẫn ngắn, ẩn tên tác giả. Những phần không nằm trong trích dẫn được tóm tắt, không đặt trong ngoặc kép. Chủ đề có thể gắn nhiều nhãn cho một review; số lượng dưới đây là số record trong mẫu, không phải tỷ lệ người dùng.
-
-| ID | Store / nền tảng | Ngày trên store | Sao | Bằng chứng ngắn hoặc ý chính | Nhãn sơ bộ / giới hạn |
-|---|---|---:|---:|---|---|
-| R01 | Apple KR / iOS | 2020-06-09 | 5★ | “단연 으뜸이다” (khen chung: tốt nhất trong các app từng dùng) | Tích cực nhưng chung chung; không chỉ ra yếu tố UX cụ thể. |
-| R02 | Apple KR / iOS | 2024-01-03 | 5★ | “PUSAN” | Không đủ nội dung để mã hóa pain point hay nguyên tắc. |
-| R03 | Apple US / iOS | 2026-06-29 | 5★ | “how much money we are starting the month with” | Muốn nhìn rõ số dư mang sang đầu tháng; P06 (nhận biết thay vì phải nhớ) là ánh xạ ứng viên. Đề xuất tính năng, không chứng minh cách hiện tại hoàn toàn không có. |
-| R04 | Apple US / iOS | 2026-08-16 | 5★ | Khen app, báo Apple Pay/Shortcuts automation ngừng hoạt động. | Tính ổn định / phục hồi lỗi; P09 ứng viên. Developer response hướng dẫn kiểm tra Shortcuts, nên không khẳng định lỗi hiện còn. |
-| R05 | Apple US / iOS | 2026-05-13 | 3★ | Phản ánh không nhận push cho khoản sắp thanh toán; muốn thao tác refund ngay từ giao dịch. | Trạng thái khoản đến hạn / thao tác sửa; P01, P03 ứng viên. Developer response khi đó nói push iOS mới hỗ trợ một phần; lịch sử, cần kiểm tra app hiện tại. |
-| R06 | Apple US / iOS | 2024-07-29 | 1★ | Dữ liệu iOS không đồng bộ sang web, bị yêu cầu thiết lập lại tiền tệ gốc/số dư ban đầu. | Đồng bộ và phản hồi lỗi; P01/P09 ứng viên. Báo cáo lịch sử, không chứng minh lỗi 5.7.5. |
-| R07 | Apple US / iOS | 2021-05-28 | 5★ | Khen giao diện, biểu đồ, đa tiền tệ; người viết từng nhầm xóa dữ liệu với xóa tài khoản rồi sửa được sau phản hồi hỗ trợ. | Tích cực về P02/P07; nhầm lẫn và phục hồi có thể gợi ý P03/P09. Rất cũ, không suy ra lỗi hiện tại. |
-| R08 | Apple US / iOS | 2017-01-23 | 2★ | Nói một bản cập nhật làm việc phân loại/mã hóa giao dịch trở nên bất tiện. | Lịch sử về thay đổi/nhất quán; P04/P07 ứng viên. Quá cũ, không dùng làm kết luận hiện trạng. |
-| R09 | Apple US / iOS | 2024-03-06 | 1★ | Không kết nối được credit union sau nhiều lần thử; đã tìm FAQ và liên hệ hỗ trợ. | Lỗi kết nối, hỗ trợ và phục hồi; P09/P10 ứng viên. Ngân hàng/khu vực cụ thể; không khái quát thành lỗi cho mọi ngân hàng. |
-| R10 | Apple US / iOS | 2023-11-29 | 2★ | Sau khi kết nối lại, giao dịch bị nhân đôi; người viết mất công xóa thủ công và thường bị đăng xuất. | Ngăn lỗi/trùng lặp, phục hồi và hiệu quả; P05/P09/P07 ứng viên. Cũ, phụ thuộc kết nối ngân hàng. |
-| R11 | Apple US / iOS | 2023-03-06 | 5★ | Khen biểu đồ và so sánh chi tiêu với thu nhập; nhập thủ công mất thời gian. | Tích cực về nhận biết tình hình/P06; hiệu quả nhập liệu/P07 là cơ hội. Cũ. |
-| R12 | Apple US / iOS | 2024-03-24 | 4★ | Khen Dashboard/Statistics, nhập tay nhiều tiền tệ và liên kết Wise; phàn nàn thiếu một số ngân hàng và tách giao dịch. | Tích cực về P02/P06; linh hoạt thao tác P07. Thiếu ngân hàng tùy thị trường; không dùng làm bằng chứng KR. |
-| R13 | Google Play US query / Android | 2026-08-29 | 1★ | “UI is clunky, illogical”; phàn nàn nhập ngân hàng sai danh mục và khó tùy chỉnh. | Nhập liệu/khả năng tùy chỉnh; P07/P08 ứng viên. Developer response nói có quy tắc tự động và danh mục con; không khẳng định mọi yêu cầu danh mục đều được hỗ trợ. Android, không gán trực tiếp cho iOS. |
-| R14 | Google Play US query / Android | 2026-07-31 | 5★ | Khen khả năng tùy chỉnh; muốn nhiều nhóm chia sẻ và mở rộng thêm nước Đông Nam Á. | Tích cực về P07; yêu cầu phạm vi chia sẻ/thị trường. Không chứng minh thiếu ngân hàng Việt Nam/Hàn Quốc. Android. |
-| R15 | Google Play US query / Android | 2026-04-01 | 5★ | “too many options”; người viết tìm thấy template nhưng vẫn thấy một số việc đơn giản bị rườm rà. | Khả năng tìm thấy chức năng và giảm độ phức tạp; P06/P08 ứng viên. Review 5★ cho thấy phản ánh usability không đồng nghĩa đánh giá tổng thể thấp. Android. |
-| R16 | Apple UK / iOS | 2026-08-24 | 5★ | Khen Wallet đơn giản, dễ dùng, linh hoạt cho ngân sách và thu nhập nhiều nguồn. | Positive UX, tùy biến, tổ chức tài chính cá nhân; P02/P07 ứng viên. Khu vực UK. |
-| R17 | Apple UK / iOS | 2026-09-01 | 5★ | Khen cách hiển thị đa tiền tệ; muốn ghi chú giao dịch ngoại tệ đang chờ và biết vì sao tài khoản chưa đồng bộ. | Điểm tốt P02; trạng thái/chỉnh sửa giao dịch và đồng bộ P01/P03/P09 là ứng viên. Review mới nhưng tính năng/ngân hàng phụ thuộc khu vực. |
-| R18 | Apple UK / iOS | 2024-02-21 | 1★ | Báo giao dịch trùng và số dư sai sau khi đồng bộ; phản ánh sửa thủ công và hỗ trợ chậm. | Lỗi dữ liệu, phục hồi, hỗ trợ; P05/P09/P10 ứng viên. Báo cáo lịch sử, không khẳng định tồn tại ở 5.7.5. |
-| R19 | Apple UK / iOS | 2026-03-31 | 5★ | Khen app; đề nghị xem lịch thu/chi theo ngày, tách khoản dùng chung và đối chiếu tiền hoàn. | Positive experience + yêu cầu tính năng; P06/P07 ứng viên. Năm lấy từ ngày ISO trên trang. |
-| R20 | Apple UK / iOS | 2024-03-09 | 2★ | Phản ánh tài khoản đồng bộ không tốt và giao dịch vào sai danh mục lặp lại. | Đồng bộ/tính đúng dữ liệu; P01/P05/P09 ứng viên. Review lịch sử, không khẳng định còn xảy ra ở 5.7.5. |
-
-## Feedback có liên quan UI/UX — đọc theo mức độ trực tiếp
-
-### 1. Phản hồi nói thẳng về thao tác, độ dễ hiểu hoặc thông tin cần nhận biết
-
-- **R13 — UI khó hiểu/tùy chỉnh danh mục (Google Play US, Android, 1★, 2026-08-29):** người viết gọi UI là “clunky, illogical” và nói giao dịch nhập từ ngân hàng vào sai danh mục, khó tùy chỉnh. Có thể liên hệ **P02** (khái niệm/danh mục có khớp kỳ vọng không), **P07** (dễ sửa/tùy chỉnh), **P08** (độ phức tạp). Phản hồi nhà phát triển nói có automatic rules/subcategories; không đủ căn cứ để kết luận app không có cách sửa.
-- **R15 — quá nhiều lựa chọn, việc đơn giản rườm rà (Google Play US, Android, 5★, 2026-04-01):** người viết vẫn đánh giá tổng thể 5★ nhưng nói có “too many options” và một số tác vụ đơn giản tốn công. Ứng viên **P07/P08**: tìm đường tắt/giảm tải lựa chọn. Đây là tín hiệu UX đáng chú ý; không chứng minh tất cả người dùng thấy app phức tạp.
-- **R11 — nhập tay mất thời gian (Apple US, iOS, 5★, 2023-03-06):** khen biểu đồ và so sánh thu/chi, đồng thời nói ghi giao dịch thủ công mất thời gian. Ứng viên **P07**; review cũ và tác giả vẫn cho điểm cao.
-- **R03 — muốn thấy số dư đầu tháng (Apple US, iOS, 5★, 2026-06-29):** phản hồi muốn biết tháng bắt đầu với bao nhiêu tiền. Ứng viên **P06** (nhận biết thay vì phải nhớ); đây là yêu cầu tăng visibility, không xác nhận màn hiện tại hoàn toàn không có số liệu.
-- **R05 — nhắc khoản đến hạn và thao tác refund (Apple US, iOS, 3★, 2026-05-13):** người viết nói không nhận push cho khoản sắp thanh toán và muốn xử lý refund ngay từ giao dịch. Có thể liên hệ **P01** (nhận biết khoản đến hạn) và **P03/P07** (đường thao tác/chỉnh sửa); response cùng thời điểm cho biết push iOS còn hỗ trợ một phần, nên cần coi là giới hạn/bug lịch sử.
-
-### 2. Lỗi kết nối/dữ liệu tạo ra trải nghiệm UX xấu
-
-R06 (không đồng bộ iOS–web), R09 (không kết nối được một credit union), R10 (sau sync lại bị trùng, phải xóa tay/đăng nhập lại), R18 (trùng giao dịch/số dư sai và hỗ trợ chậm), R20 (sync không tốt, giao dịch sai danh mục) là tín hiệu mạnh về **độ tin cậy, phòng lỗi và phục hồi** — ứng viên **P01/P05/P09/P10**. Chúng ảnh hưởng UX vì người dùng không biết dữ liệu nào đúng và phải tự sửa; nhưng nguyên nhân có thể là tích hợp/ngân hàng/dữ liệu, không thể gán hết cho layout. Nhiều review có từ 2023–2024, khác khu vực và một số khác nền tảng; không dùng để khẳng định lỗi hiện vẫn tồn tại trên iPhone 5.7.5.
-
-### 3. Phản hồi tích cực là bằng chứng UX tốt, không chỉ để tìm lỗi
-
-R07 nêu giao diện/biểu đồ/đa tiền tệ; R11 khen charts và đối chiếu thu/chi; R12 khen Dashboard/Statistics và nhập đa tiền tệ; R16 mô tả app đơn giản/dễ dùng/linh hoạt; R17 khen hiển thị đa tiền tệ. Các review này hỗ trợ **P02/P06/P07** như điểm mạnh, dù trải nghiệm phụ thuộc phiên bản/khu vực.
-
-### Kết luận có thể trình bày
-
-Trong mẫu 20 review, có phản hồi UX cụ thể về **độ phức tạp/khả năng tìm thao tác (R13, R15), thời gian nhập liệu (R11), khả năng nhìn ra số dư quan trọng (R03), và nhắc/chỉnh giao dịch (R05)**. Nhóm sync (R06/R09/R10/R18/R20) cũng tạo hậu quả UX rõ, nhưng phần lớn là reliability/data issue. Review cho thấy người dùng khác có các phản hồi này; chúng **không chứng minh chính sinh viên đã gặp chúng**. Mẫu nhiều store/khu vực, chỉ 2 review Apple KR; do đó không kết luận đây là trải nghiệm phổ biến của du học sinh Việt/Hàn.
-
-Riêng hướng **mục tiêu học phí/Goals**, mẫu R01–R20 không có review trực tiếp. Có thể chọn nó dựa trên trải nghiệm của chính sinh viên và việc Goals không khả dụng trên iOS theo Help Center, còn R03/R11/R12 chỉ làm bằng chứng lân cận về visibility, dòng tiền và đa tiền tệ.
-
-## Triage: phản hồi cũ còn đúng với Wallet iPhone 5.7.5 không?
-
-Ảnh người dùng chụp ngày 2026-10-28 dùng để kiểm tra xem UI hiện tại có bằng chứng liên quan hay không. “Chưa xác nhận” nghĩa là ảnh tĩnh không đủ để gọi vấn đề đã hết hoặc còn; không phải kiểm thử đầy đủ.
-
-| Review / chủ đề | Đối chiếu với màn hình hiện tại | Kết luận tạm thời |
+| 스토어/범위 | 수집일 평점·평가 수 | 분포와 주의점 |
 |---|---|---|
-| **R03 — số dư đầu tháng** | Dashboard có Balance Trend và Statistics có bộ chọn kỳ; ảnh không cho thấy số dư đầu kỳ được ghi nhãn rõ. | **Chưa xác nhận đã giải quyết.** Có công cụ nhìn xu hướng/số dư, nhưng không thấy rõ con số bắt đầu tháng trong ảnh. Cần mở chi tiết trend/kỳ tháng để kiểm tra. |
-| **R05 — nhắc khoản đến hạn/refund** | Planned Payments hiển thị lịch/ngày và trạng thái xác nhận; chưa có ảnh setting notification hoặc chi tiết transaction/refund. | **Chưa xác nhận.** Màn hình lịch tồn tại nhưng không chứng minh push hoạt động hay refund thao tác được từ giao dịch. |
-| **R06 — iOS không đồng bộ web** | Không có flow đồng bộ iOS–web trong ảnh. | **Không thể đánh giá từ ảnh.** Review 2024; không coi là lỗi hiện hành. |
-| **R07 — nhầm xóa dữ liệu/tài khoản** | Không có flow xóa dữ liệu hoặc xóa tài khoản trong ảnh. | **Không thể đánh giá; review 2021 đã cũ.** |
-| **R08 — phân loại sau cập nhật trở nên bất tiện** | Có form chọn Category hiện tại, nhưng không có so sánh trước/sau cập nhật hay nhiệm vụ phân loại hoàn chỉnh. | **Không thể xác nhận; review 2017 quá cũ.** |
-| **R09 — không kết nối credit union** | Ảnh cho thấy lựa chọn kết nối tại South Korea; không thử ngân hàng US hoặc kết nối thật. | **Không thể áp dụng trực tiếp.** Review phụ thuộc quốc gia/nhà cung cấp, không chứng minh lỗi ở KR. |
-| **R10 — trùng giao dịch/đăng xuất sau reconnect** | Không chạy Bank Sync thật; ảnh chỉ cho thấy nhà cung cấp và phương thức nhập. | **Chưa xác nhận.** Phải kiểm thử có chủ đích để đánh giá trùng lặp/đăng xuất; không nên dùng tài khoản thật cho bài này. |
-| **R11 — nhập tay tốn thời gian** | Quick Add có nhiều trường và bàn phím số; Templates có thể lưu mẫu để nhập lại. | **Chưa xác nhận đã giải quyết.** Template là cơ chế giảm thao tác lặp, nhưng ảnh không cho biết thời gian/số lần chạm hoặc độ dễ tìm trường. |
-| **R12 — thiếu ngân hàng/tách giao dịch** | Người dùng báo Vietnam không có trong country list; ảnh mới xác nhận ba lựa chọn dưới South Korea: BUXFER, HSBC Offshore Banking, Wise. Chưa thử split transaction. | **Độ phủ là giới hạn hiện thấy trong lần khảo sát iOS/KR này;** không khái quát các thị trường. Split transaction **chưa đánh giá**. |
-| **R13 — UI Android rối, sai danh mục/tùy chỉnh** | Ảnh iOS có trường Category nhưng không cho thấy giao dịch import/sai danh mục hoặc chỉnh automatic rules; khác nền tảng. | **Chưa xác nhận trên iOS.** Coi là tín hiệu Android để nêu câu hỏi P07/P08, không đưa vào danh sách bug iPhone. |
-| **R15 — quá nhiều options/làm việc đơn giản rườm rà** | More hiển thị nhiều module; Quick Add form nhiều trường nhưng có Templates và tab chính. Chưa quan sát người dùng khác tìm tính năng. | **Có thể đặt giả thuyết về độ dày tính năng, chưa chứng minh còn là usability issue.** Không kết luận “rối” chỉ từ số lượng mục. Android review. |
-| **R17 — ghi chú giao dịch FX đang chờ/lý do chưa sync** | Currencies xác nhận KRW/VND; chưa có ảnh transaction pending hoặc lỗi sync giải thích nguyên nhân. | **Đa tiền tệ cơ bản được xác nhận; yêu cầu pending/sync status chưa đánh giá.** |
-| **R18/R20 — trùng, sai số dư/danh mục sau sync** | Không thử sync thật; ảnh không có error, duplicate hoặc recovery state. Review năm 2024 và thị trường UK. | **Chưa xác nhận trên iPhone 5.7.5.** Có hậu quả UX nghiêm trọng nếu xảy ra, nhưng nguồn gốc có thể là tích hợp/dữ liệu. |
-| **R19 — lịch thu chi theo ngày/tách khoản chung/hoàn tiền** | Planned Payments cho thấy ngày các khoản định kỳ; không có lịch toàn bộ giao dịch theo ngày hay split/shared/refund flow. | **Một phần chức năng lịch dự kiến hiện có;** các yêu cầu còn lại chưa được kiểm tra. Đây là feature request, không tự động là lỗi. |
+| Apple KR iOS |4.8/5,38 ratings| 공개 페이지에 평균/총수만 보였다. 내용 리뷰2개. histogram을 평균에서 추정하지 않았다. |
+| Apple US iPhone |4.6/5,5.9K ratings|10개 리뷰를 사용. 공개 페이지에서 별점별 분포를 얻지 못했다. KR과 합치지 않는다. |
+| Apple UK iPhone |4.5/5,889 ratings|표시 리뷰 중5개 사용. UK 출처를 명시한다. |
+| Google Play US 조회 Android |전체4.6/5,388K. Phone4.7/5,380K|Phone5★316,980·4★27,465·3★8,844·2★7,078·1★19,487. 합379,854. 전체388K와 범위가 다르다. |
 
-**Tổng kết triage:** không có review cũ nào trong mẫu đủ bằng chứng để đánh dấu chắc chắn là “đã fix” chỉ từ ảnh. Một số cơ chế liên quan hiện diện (Balance Trend, Templates, Planned Payments), nhưng chúng không chứng minh phàn nàn cụ thể đã được giải quyết. Những lỗi sync/reliability cần kiểm thử trạng thái và kết quả mới kết luận được. Phát hiện hiện hành rõ nhất cho persona là Goals không khả dụng trên iOS theo Help Center và độ phủ bank selection theo quan sát cá nhân; đây là capability/coverage gap, không đồng nhất với bug UI.
+출처: [Apple KR](https://apps.apple.com/kr/app/id1032467659), [Apple US 리뷰](https://apps.apple.com/us/app/wallet-daily-budget-profit/id1032467659?platform=iphone&see-all=reviews), [Apple UK 리뷰](https://apps.apple.com/gb/app/wallet-budget-money-manager/id1032467659?platform=iphone&see-all=reviews), [Play US 조회](https://play.google.com/store/apps/details?id=com.droid4you.application.wallet&hl=en&gl=US). gl=US는 조회 지역이며 작성자의 국적을 뜻하지 않는다.
 
-## Phân loại mẫu hiện có
+## 10월29일 원본 histogram 추가
 
-Các nhãn chồng lấp; đếm theo record, n=20:
+![Google Play US Phone의 원본 화면](screenshots/store/google-play-us-phone-2026-10-29.png)
 
-- Khả năng tìm hiểu / độ phức tạp / hiệu quả thao tác: R03, R08, R10, R13, R15, R16 (**6** record; R08 rất cũ).
-- Kết nối, đồng bộ, tính đúng của giao dịch hoặc khôi phục: R04, R06, R09, R10, R13, R17, R18, R20 (**8** record; có nguồn cũ và đa nền tảng).
-- Đánh giá tích cực có nêu cụ thể Dashboard, biểu đồ, đa tiền tệ, hoặc tùy chỉnh: R07, R11, R12, R14, R16, R17 (**6** record; nhiều store/khu vực, có review cũ).
-- Yêu cầu hiển thị số dư đầu tháng, nhắc khoản đến hạn, ghi chú giao dịch ngoại tệ, nhóm chia sẻ/lịch thu-chi: R03, R05, R14, R17, R19 (**5** record).
-- Review KR iOS có nội dung quá ngắn để mã hóa: R02 (**1** record); R01 chỉ khen chung.
+위10월28일 자료와 별도 snapshot이다. Phone은4.6/5·380K로 표시됐다. accessibility의 정확한 수는5★317,051 /4★27,451 /3★8,845 /2★7,079 /1★19,472, 합379,898이다. 그림을 다시 그리지 않고 store를 캡처했다. Apple·다른 지역·전체388K와 합치지 않는다. 모든 리뷰의 앱 버전이 공개된 것은 아니므로 추정하지 않았다.
 
-Đây là phân loại sơ bộ của một mẫu nhỏ, có chủ ý chọn các thẻ đang hiển thị. Không gọi là khảo sát đại diện, không lấy tỷ lệ này làm tỷ lệ người dùng. Mẫu gồm 2 Apple KR + 10 Apple US + 5 Apple UK + 3 Google Play US query; luôn ghi rõ nền tảng/khu vực cạnh mỗi record.
+## 익명 리뷰20개
 
-## Điểm Wallet làm tốt — đối chiếu review và ảnh quan sát
+| ID | 스토어/플랫폼 | 날짜 | 별점 | 짧은 근거 또는 한국어 요약 | 원칙 후보와 한계 |
+|---|---|---|---|---|---|
+| R01 | Apple KR / iOS | 2020-06-09 | 5★ | “단연 으뜸이다”. 전반적으로 좋다는 평가. | 구체적 UX 요소는 부족하다. |
+| R02 | Apple KR / iOS | 2024-01-03 | 5★ | “PUSAN”. | 내용이 너무 짧아 불편/원칙을 코딩하지 않았다. |
+| R03 | Apple US / iOS | 2026-06-29 | 5★ | “how much money we are starting the month with”. 월초 잔액 표시 요청. | P06 후보. 기능 요청이며 현재 전혀 없다는 증거는 아니다. |
+| R04 | Apple US / iOS | 2026-08-16 | 5★ | 앱은 좋으나 Apple Pay/Shortcuts 자동화가 멈췄다고 보고. | P09 후보. 개발자 안내가 있었고 현재 재현하지 않았다. |
+| R05 | Apple US / iOS | 2026-05-13 | 3★ | 예정 결제 push를 받지 못하고 거래에서 환불을 처리하고 싶다는 의견. | P01/P03 후보. 당시 iOS 부분 지원에 대한 답변이 있다. |
+| R06 | Apple US / iOS | 2024-07-29 | 1★ | iOS 데이터가 웹에 동기화되지 않고 기본 통화/초기 잔액 재설정을 요구받았다고 보고. | P01/P09 후보. 과거 보고이며5.7.5 재현 증거가 아니다. |
+| R07 | Apple US / iOS | 2021-05-28 | 5★ | UI·차트·다중 통화를 칭찬. 데이터 삭제와 계정 삭제를 혼동했다가 지원으로 해결. | P02/P07 장점, P03/P09 검토.2021년 자료다. |
+| R08 | Apple US / iOS | 2017-01-23 | 2★ | 업데이트 뒤 거래 분류가 불편해졌다는 보고. | P04/P07 후보.2017년 자료로 현행 결론에 쓰지 않는다. |
+| R09 | Apple US / iOS | 2024-03-06 | 1★ | 특정 credit union 연결 실패. FAQ와 지원을 이용했다고 보고. | P09/P10 후보. 특정 국가/기관 경험이다. |
+| R10 | Apple US / iOS | 2023-11-29 | 2★ | 재연결 뒤 거래 중복, 수동 삭제와 반복 로그아웃을 보고. | P05/P09/P07 후보. 과거 은행 연결 보고다. |
+| R11 | Apple US / iOS | 2023-03-06 | 5★ | 차트와 수입/지출 비교는 좋지만 수기 입력이 오래 걸린다는 의견. | P06 장점/P07 기회.5★ 평가와 불편이 함께 있다. |
+| R12 | Apple US / iOS | 2024-03-24 | 4★ | Dashboard/Statistics·다중 통화 수기 입력·Wise 연결 긍정. 일부 은행/거래 분할은 아쉬움. | P02/P06 장점, P07 후보. 한국 은행 범위의 증거가 아니다. |
+| R13 | Google Play US query / Android | 2026-08-29 | 1★ | “UI is clunky, illogical”. 은행 입력의 잘못된 분류와 수정 어려움. | P07/P08 후보. Android다. 개발자는 자동 규칙/하위 분류를 안내했다. |
+| R14 | Google Play US query / Android | 2026-07-31 | 5★ | 맞춤 설정을 칭찬하며 공유 그룹과 동남아 국가 확대를 요청. | P07 장점. 특정 한국/베트남 은행의 부재를 직접 증명하지 않는다. |
+| R15 | Google Play US query / Android | 2026-04-01 | 5★ | “too many options”. Templates를 찾았지만 단순 작업도 번거롭다는 의견. | P06/P08 후보. Android5★ 리뷰다. |
+| R16 | Apple UK / iOS | 2026-08-24 | 5★ | 단순하고 쉬우며 예산과 여러 수입원을 유연하게 관리한다고 평가. | P02/P07 장점. 영국 iOS 표본이다. |
+| R17 | Apple UK / iOS | 2026-09-01 | 5★ | 다중 통화 표시를 칭찬. 미결 FX 거래 메모와 미동기화 이유 표시 요청. | P02 장점, P01/P03/P09 후보. 기관/지역 차이가 있다. |
+| R18 | Apple UK / iOS | 2024-02-21 | 1★ | 동기화 뒤 중복 거래·잘못된 잔액, 수기 수정과 느린 지원을 보고. | P05/P09/P10 후보.2024년 보고이며 현재 재현하지 않았다. |
+| R19 | Apple UK / iOS | 2026-03-31 | 5★ | 앱을 칭찬하며 날짜별 수입/지출, 공유 항목 분할과 환불 대조를 요청. | P06/P07 후보. 기능 요청을 현행 버그로 바꾸지 않는다. |
+| R20 | Apple UK / iOS | 2024-03-09 | 2★ | 계좌 동기화와 반복되는 잘못된 거래 분류를 보고. | P01/P05/P09 후보.2024년 자료다. |
 
-- **P02 — phù hợp cách người dùng nghĩ về tiền:** App Store KR mô tả đa tiền tệ; R07/R12 nêu trải nghiệm tốt với nhiều tiền tệ. Điều này chứng minh Wallet có năng lực đa tiền tệ được người dùng ghi nhận, không phải pain point “Wallet không hỗ trợ đa tiền tệ”. Ảnh Currencies xác nhận KRW là base và VND được thêm; ảnh chưa cho thấy một tổng số dư quy đổi hoặc tỷ giá đang áp dụng.
-- **P06 — làm rõ tình hình để giảm phải nhớ:** R11 khen biểu đồ và đối chiếu thu/chi; R03 đề nghị thấy số dư chuyển sang đầu tháng. Ảnh xác nhận Wallet có widget Balance Trend và mục Statistics, nhưng chưa đủ để kết luận về độ dễ hiểu hoặc mức độ hỗ trợ lập kế hoạch học phí.
-- **P07 — linh hoạt cho cách dùng khác nhau:** R14/R07 khen khả năng tùy chỉnh hoặc nhiều cách dùng; ngược lại R13/R15 cho thấy nhiều tùy chọn có thể làm một số việc khó. Đây là trade-off cần kiểm tra trong app, không chỉ thêm tính năng.
+## 유형 분류
 
-Ánh xạ P ở đây là giả thuyết làm việc. P01–P10 phải dùng đúng tên/ngữ nghĩa trong bài giảng và chỉ đưa vào principle card sau khi người dùng xác nhận cách giải thích phù hợp.
+라벨은 중복 가능하며 아래 수는 n=20 안의 record 수다. 사용자 비율이 아니다.
 
-## Vấn đề ưu tiên — người dùng đã chốt, ghi nhận L029–L035
+| 유형 | 리뷰 | 수 |
+|---|---|---:|
+| 찾기 쉬움·복잡성·조작 효율 |R03/R08/R10/R13/R15/R16|6|
+| 연결·동기화·정확성·복구 |R04/R06/R09/R10/R13/R17/R18/R20|8|
+| Dashboard·차트·다중 통화·맞춤 설정의 구체적 장점 |R07/R11/R12/R14/R16/R17|6|
+| 월초 잔액·예정 알림·FX 메모·공유/달력 요청 |R03/R05/R14/R17/R19|5|
+| 분류하기에 너무 짧은 내용 |R02|1|
 
-Đề xuất trọng tâm là **biến tracking đa tiền tệ thành bức tranh dòng tiền tương lai hỗ trợ quyết định cho mục tiêu tài chính**: Wallet iOS có tài khoản đa tiền tệ, khoản thu/chi dự kiến và ngân sách; Help Center ghi Goals không khả dụng trên iOS. Người dùng trực tiếp kể khó lập kế hoạch tổng thể khi đối chiếu thu nhập Việt Nam, lương Hàn Quốc và hỗ trợ gia đình; học phí là một ví dụ đã nêu, không phải mục tiêu duy nhất.
+표본은 Apple KR2+US10+UK5+Play3이다. R01은 일반적 칭찬이다. 오래된 R08 등을 별도 표시했다.
 
-Giới hạn bằng chứng: mẫu R01–R20 không có review trực tiếp về mục tiêu học phí hay một mục tiêu tiết kiệm cụ thể. R03 (số dư đầu tháng), R05 (khoản đến hạn), R11 (biểu đồ và nhập tay), R12 (đa tiền tệ/ngân hàng), R17 (giao dịch FX/sync) là bằng chứng lân cận về visibility và cash flow; không dùng như thể chúng xác nhận nhu cầu Goals. Học phí có thể làm use case minh họa; Bank Sync coverage là phát hiện phụ, không gộp vào cùng một lỗi.
+## 현재 화면과 과거 의견의 대조
 
-Người dùng đã chọn cải thiện việc tái sử dụng Planned Payments trong Outlook, P07 chính/P06 phụ. Đây là trải nghiệm cá nhân đã xác nhận, không đại diện cho mọi du học sinh. Sync là điểm thấp theo số review; Outlook là điểm thấp theo mục tiêu tác vụ cá nhân. Chọn Outlook vì có trải nghiệm trực tiếp và phù hợp phạm vi UI, không vì đó là chủ đề có nhiều review nhất.
+| 주제 |5.7.5 화면/직접 경험 대조|판정|
+|---|---|---|
+| R03 월초 잔액 |Balance Trend와 기간 선택은 있다. 월초 금액의 명확한 라벨은 해당 캡처로 확인하지 못했다.|해결 여부 미확인|
+| R05 알림/환불 |예정 항목과 날짜는 있다. 알림 작동과 환불 상세는 시험하지 않았다.|미확인|
+| R06 iOS-Web 동기화 |해당 동기화 흐름을 시험하지 않았다.|현재 버그로 단정하지 않음|
+| R07 삭제 혼동/R08 업데이트 분류 |삭제와 과거 버전 비교 자료가 없다.|오래된 보고, 현재 판정 불가|
+| R09 특정 기관 연결/R10 재연결 중복 |실제 은행 연결을 시험하지 않았다.|지역 차이, 현재 재현 없음|
+| R11 수기 입력 |Quick Add와 Templates가 있다. 입력 시간을 재지 않았다.|완화 수단 존재, 효율 개선량 미측정|
+| R12 은행 범위/분할 |사용자 보고상 Vietnam 부재, South Korea에는3개 연결 선택지가 보였다. 분할은 시험하지 않았다.|관찰 범위만 확인|
+| R13 Android 분류/R15 옵션 복잡성 |iOS에는 Category·Templates·여러 모듈이 있다. 실제 잘못된 import나 다른 사용자 탐색은 관찰하지 않았다.|Android 의견을 iOS 결함으로 옮기지 않음|
+| R17 FX/미동기화 상태 |KRW/VND 설정은 확인. pending 거래와 오류 설명은 시험하지 않았다.|다중 통화 존재, 상태 요구는 미확인|
+| R18/R20 중복/잔액·분류 오류 |해당 오류·복구를 재현하지 않았다.|2024년 영국 보고, 현재 판정 보류|
+| R19 날짜별 흐름/공유·환불 |Planned Payments는 예정일을 표시한다. 전체 달력·공유 분할·환불은 미시험.|일부 일정 존재, 나머지 미확인|
 
-## Trao đổi miệng trước hackathon
+## UI/UX 해석과 유지할 장점
 
-Người dùng cho biết từng hỏi khoảng 5–7 người bạn, không ghi chép. Đây là hồi tưởng về trao đổi khám phá, không phải survey có dữ liệu định lượng. Không tạo tỷ lệ, trích dẫn, thông tin người tham gia hay ngày phỏng vấn giả. Chỉ dùng làm bối cảnh nếu người dùng muốn ghi bản hồi tưởng, có nhãn “ghi lại hồi cứu”.
+R13/R15는 복잡성/수정, R11은 입력 시간, R03은 중요한 잔액의 가시성, R05는 알림/수정의 단서를 준다. Sync 문제는 신뢰·복구 UX에 영향을 주지만 원인이 API/기관/데이터일 수 있어 전부 레이아웃 문제로 쓰지 않는다.
 
-## Quan sát trực tiếp trên Wallet iPhone 5.7.5
+P02: 통화/계좌를 현실의 돈 구조로 표현한다. P06: Dashboard와 차트가 상황을 보이게 한다. P07: 중앙 +, Templates와 여러 입력 방식이 장점이다. 반대로 많은 선택지가 일부 사용자에게 부담이 된다는 의견도 함께 둔다. 이름/이유가 확인된 원칙만 최종 카드에 쓴다.
 
-Ngày quan sát: **2026-10-28 (KST)**. Thiết bị iPhone theo ảnh do người dùng chụp; phiên bản app do người dùng cung cấp là **5.7.5**. Thiết bị là iPhone 14 Pro Max; người dùng báo iOS mới nhất lúc quan sát nhưng không ghi số phiên bản cụ thể. Bộ ảnh hiện có ghi nhận các flow sau:
+## 우선 문제와 근거 구분
 
-- **Dashboard:** thấy lưới tài khoản và các widget như Balance Trend, Top Expenses, Last Records; có nút thêm tài khoản và lối vào Settings.
-- **Currencies:** KRW được đánh dấu Base currency, VND có trong danh sách; công tắc cập nhật tỷ giá đang tắt ở thời điểm chụp. Điều này xác nhận cấu hình hai đơn vị tiền tệ có mặt trong tài khoản quan sát; chưa đủ để kết luận độ chính xác hay cách Wallet tổng hợp số dư quy đổi.
-- **Planning / Budgets:** có Planned Payments và Budgets. Ảnh danh sách khoản dự kiến cho thấy các khoản thu/chi định kỳ gắn với tiền tệ/tài khoản; màn hình ngân sách cho thấy kỳ, tổng chi và mức chi theo danh mục.
-- **Add Record / Templates:** có các loại Expense, Income, Transfer; thông tin gồm tài khoản, danh mục, ngày giờ, số tiền/tiền tệ và các chi tiết bổ sung. Mẫu giao dịch có tên, tài khoản, danh mục, số tiền, loại, tiền tệ và payee.
-- **Statistics / More:** Statistics có các mục Balance, Spending, Cash Flow, Outlook, Credit và Reports–Income. Ảnh More hiện phần Group Sharing, Records, Investments, Wallet for business và ShareCost; không thấy mục Goals trong vùng được chụp.
+리뷰 최저점은 연결/데이터다. 사용자는 partnership보다 UI 과업을 고쳐 보려 했고, Planned Payments를 Outlook에 다시 입력한 경험을 우선했다. P07 주원칙/P06 보조를 선택했다. R01–R20에는 Outlook이나 학비/특정 저축 목표의 직접 리뷰가 없다. 인접 리뷰를 직접 증거로 바꾸지 않는다.
 
-### Bank Sync — quan sát và diễn giải (bổ sung từ 3 ảnh)
+Wallet은 이미 다중 통화를 지원한다. iOS Goals는2026-10-28 확인한 [공식 도움말](https://support.budgetbakers.com/hc/en-us/articles/7181571852690-Setting-up-Goals)에서 미지원으로 표시됐다. 학비는 대표 use case이며 finaci는 글로벌 다중 통화 이용자를 대상으로 한다.
 
-- **Quan sát trực tiếp qua ảnh:** luồng New Account có các loại Cash, Checking Account, Credit card, Savings Account, Investments, Loans and Mortgage và Other. Với Checking Account, app đề xuất Bank Sync để tự đồng bộ số dư/giao dịch; bên cạnh đó có Apple Pay Integration, Manual Entry và Import Files. Màn tiếp theo yêu cầu chọn quốc gia trước khi tìm ngân hàng.
-- **Quan sát do người dùng báo cáo và ảnh xác nhận thêm:** trong country list đã kiểm tra không có Việt Nam. Ảnh `all banks ở hàn.jpg` sau “Show all banks” hiển thị 3 lựa chọn dưới South Korea: **BUXFER — Checking Account; HSBC Offshore Banking — Checking Account; Wise (former Transferwise) — Checking Account, Savings Account**. Đây là ba lựa chọn được hiển thị trong lần quan sát; ảnh không chứng minh ba lựa chọn đó là ba ngân hàng nội địa Hàn phổ biến. Tên/mô tả của HSBC và Wise cho thấy cần gọi chúng là “lựa chọn kết nối/tổ chức tài chính” thay vì khẳng định cả ba là ngân hàng Hàn.
-- **Diễn giải UX có căn cứ:** với persona có tài khoản ở Việt Nam và Hàn Quốc, thiếu Việt Nam và ít lựa chọn ngân hàng Hàn có thể làm Bank Sync không bao phủ các nguồn tiền cần theo dõi, khiến người dùng phải cân nhắc nhập tay. Đây là vấn đề về độ phủ kết nối cho persona, không phải bằng chứng Wallet không hỗ trợ đa tiền tệ.
-- **Giới hạn:** “ít người dùng tiếp cận được” là suy luận về khả năng sử dụng, không có dữ liệu về số người dùng Wallet hay tỷ lệ kết nối thành công; không viết như thống kê. Chưa thử kết nối thật và không cần nhập thông tin ngân hàng cho bài UI-only. Ảnh cho biết danh sách hiển thị dưới South Korea, nhưng không xác nhận tính phổ biến, hỗ trợ kỹ thuật thực tế hay ngân hàng nội địa nào khác có thể tìm qua search.
-
-### Mục tiêu tiết kiệm trên iOS — kết quả kiểm tra
-
-Người dùng chưa tìm thấy Goals trong các flow iPhone đã chụp. Help Center chính thức của Wallet hiện ghi **Goals không khả dụng trên iOS**, trong khi hướng dẫn tạo Goals chỉ có các bước Android; vì vậy đây là khác biệt nền tảng được tài liệu chính thức xác nhận, không chỉ là mục bị bỏ sót trong ảnh. Nguồn: [Wallet Help Center — Setting up Goals](https://support.budgetbakers.com/hc/en-us/articles/7181571852690-Setting-up-Goals), truy cập 2026-10-28. Tài liệu hướng dẫn Goal có số tiền mục tiêu, số đã tiết kiệm và ngày mong muốn trên Android; không nên giả định UI hoặc quy tắc đó tồn tại trên iOS 5.7.5.
-
-### Giới hạn và quyền riêng tư
-
-Ảnh xác nhận các màn hình người dùng đã mở, không chứng minh mọi nhánh/điều kiện của app. Không tìm thấy mục Goals trong More đã chụp và Help Center nói không khả dụng iOS; ghi nhận cụ thể là “Goals không khả dụng trên iOS theo Help Center hiện tại”, không khái quát sang Android. Ảnh Dashboard hiển thị số dư cá nhân; trước khi đưa vào slide hoặc repo công khai, cần che/crop số tiền và thông tin tài khoản nếu đó là dữ liệu thật. Người dùng đã xác nhận thử hầu hết flow riêng, khó khăn Outlook/nhập lặp và ngân sách tháng, dùng iPhone 14 Pro Max. Journey tái dựng thứ tự từ các flow riêng; cảm xúc là ước lượng AI được chấp thuận. Không có log phiên liên tục, địa điểm/thời gian thao tác hay số phiên bản iOS cụ thể.
+관찰:21개 Wallet 캡처, iPhone14 Pro Max,5.7.5. Bank Sync의 South Korea 선택지는 BUXFER·HSBC Offshore Banking·Wise다. 모두 한국 국내 은행이라고 단정하지 않는다. 친구5–7명과의 구두 탐색은 기록 원자료가 없어 정량 설문으로 쓰지 않는다. 자세한 흐름과 회고 감정 평정은 `wallet-observation-brief.md`, `hanh-trinh-nguoi-dung.md`에 있다.

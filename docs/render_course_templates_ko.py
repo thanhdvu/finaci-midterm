@@ -89,7 +89,7 @@ for i,(name,label) in enumerate(screens):
     d.text((x+15,thumb_y+12),label,font=f(20,True),fill=NAVY)
     roundbox(d,(x+13,thumb_y+47,x+cw-13,thumb_y+thumb_h-13),fill='#101216',outline='#101216',r=8,w=1)
     paste_phone(im,ASSET/name,(x+102,thumb_y+52,260,thumb_h-65))
-d.text((60,1510),'AI 감정 추정: 0 / -1 / 0 / 0 / -1 / -2 · 사용자가 검토 후 채택한 추정치이며 직접 평정은 아닙니다.',font=f(19,True),fill=ORANGE)
+d.text((60,1510),'회고형 감정 평정: 0 / -1 / 0 / 0 / -1 / -2 · AI 초안을 사용자가 검토·채택했습니다. 별도 시험 수치와 구분합니다.',font=f(19,True),fill=ORANGE)
 d.text((60,1550),'리뷰 요약은 원문 인용이 아닙니다. 날짜·별점·store·원문은 docs/wallet-review-notes.md에서 확인하세요.',font=f(18),fill=MUTED)
 d.text((60,1590),'기본 로그인 후 흐름을 기준으로 재구성했습니다. 각 화면은 별도로 확인했으며 연속 세션 기록은 아닙니다.',font=f(18),fill=MUTED)
 im.save(DOCS/'wallet-user-journey-board-ko.png',optimize=True)
