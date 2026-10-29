@@ -51,3 +51,5 @@ Ghi chú: Vercel đã cập nhật cả sửa căn lề B cuối; web/API công 
 
 - [x] Cập nhật: video60giây được nhúng ở slide10; PDF có poster/link. App dùng nhãn tài khoản theo mã tiền, D có5tiền tệ mẫu; đã có script Hàn tự nhiên và đánh giá theo góc nhìn giáo sư.
 
+
+- [x] Bìa đã căn lại thành cụm tiêu đề–mô tả–thông điệp, mascot lớn hơn và footer cùng hàng; PPTX/PDF đã xuất lại. Video nhúng và31trang được giữ nguyên.
