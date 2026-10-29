@@ -86,4 +86,4 @@ P02: 통화/계좌를 현실의 돈 구조로 표현한다. P06: Dashboard와 �
 
 Wallet은 이미 다중 통화를 지원한다. iOS Goals는2026-10-28 확인한 [공식 도움말](https://support.budgetbakers.com/hc/en-us/articles/7181571852690-Setting-up-Goals)에서 미지원으로 표시됐다. 학비는 대표 use case이며 finaci는 글로벌 다중 통화 이용자를 대상으로 한다.
 
-관찰:21개 Wallet 캡처, iPhone14 Pro Max,5.7.5. Bank Sync의 South Korea 선택지는 BUXFER·HSBC Offshore Banking·Wise다. 모두 한국 국내 은행이라고 단정하지 않는다. 친구5–7명과의 구두 탐색은 기록 원자료가 없어 정량 설문으로 쓰지 않는다. 자세한 흐름과 회고 감정 평정은 `wallet-observation-brief.md`, `hanh-trinh-nguoi-dung.md`에 있다.
+관찰:21개 Wallet 캡처, iPhone14 Pro Max,5.7.5. Bank Sync의 South Korea 선택지는 BUXFER·HSBC Offshore Banking·Wise다. 모두 한국 국내 은행이라고 단정하지 않는다. 친구5–7명과의 구두 탐색은 기록 원자료가 없어 정량 설문으로 쓰지 않는다. 자세한 흐름과 회고 감정 평정은 `wallet-observation-brief.md`, `사용자여정.md`에 있다.

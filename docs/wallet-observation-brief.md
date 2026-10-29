@@ -39,6 +39,6 @@ Dashboard/More의 업그레이드 안내는 확인했다. 사용자는 record hi
 
 ## 근거와 한계
 
-공개 화면은 `screenshots/journey/`에서 확인하며 금액은 가렸다. 캡처는 화면을 증명하지만 모든 분기·오류·내부 계산을 증명하지 않는다. 리뷰는 `wallet-review-notes.md`, Journey는 `hanh-trinh-nguoi-dung.md`, 결정 과정은 `prompt-log.md`다.
+공개 화면은 `screenshots/journey/`에서 확인하며 금액은 가렸다. 캡처는 화면을 증명하지만 모든 분기·오류·내부 계산을 증명하지 않는다. 리뷰는 `wallet-review-notes.md`, Journey는 `사용자여정.md`, 결정 과정은 `prompt-log.md`다.
 
 사전 탐색으로 친구5–7명과 구두 대화를 했다는 사용자 설명이 있다. 메모·질문지·응답 원자료가 없으므로 정량 설문, 인용 또는 대표성 있는 결과로 쓰지 않는다.
