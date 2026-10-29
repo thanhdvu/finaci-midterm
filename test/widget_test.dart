@@ -1,23 +1,81 @@
-// 3상태(로딩·오류·빈) + 화면 흐름(push · tab · modal) + 적응형(600dp) 위젯 테스트.
-// 네트워크를 쓰지 않도록 ListScreen에 가짜 loader를 넣는다 → json-server 없이 `flutter test`가 돈다.
+// Widget coverage for the Finaci prototype. Loaders are fixtures; no server is used.
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:mid_project_template/api.dart';
 import 'package:mid_project_template/models.dart';
 import 'package:mid_project_template/screens/a_list_screen.dart';
 
-const _items = [
-  Item(id: 1, title: '항목 1', subtitle: '설명 1', image: '', tags: ['태그']),
-  Item(id: 2, title: '항목 2', subtitle: '설명 2', image: ''),
+const _snapshot = OutlookSnapshot(
+  id: 1,
+  goalDate: '2027-02-28',
+  actualKrw: 1615000,
+  projectedKrw: 3135000,
+  balances: [
+    CurrencyBalance(currency: 'KRW', amount: 1240000),
+    CurrencyBalance(currency: 'VND', amount: 7500000),
+  ],
+  actualTimeline: [
+    BalancePoint(label: '10/28', amount: 1615000, barHeight: 86),
+  ],
+  forecastTimeline: [
+    BalancePoint(label: '오늘', amount: 1615000, barHeight: 52),
+    BalancePoint(label: '02/28', amount: 3135000, barHeight: 100),
+  ],
+  upcomingPayments: [
+    PlannedPayment(
+      id: 1,
+      date: '2026-11-05',
+      name: '원격 급여',
+      category: '급여',
+      amount: 7000000,
+      currency: 'VND',
+      type: 'income',
+      source: '반복 예정 항목',
+      visibleIn: [],
+    ),
+  ],
+  goal: SavingsGoal(
+    name: '다음 학기 등록금',
+    savedAmount: 1200000,
+    targetAmount: 3000000,
+    currency: 'KRW',
+    dueDate: '2027-02-28',
+    progress: 0.4,
+  ),
+);
+
+const _payments = [
+  PlannedPayment(
+    id: 1,
+    date: '2026-11-05',
+    name: '원격 급여',
+    category: '급여',
+    amount: 7000000,
+    currency: 'VND',
+    type: 'income',
+    source: '반복 예정 항목',
+    visibleIn: ['30일', '목표일까지'],
+  ),
+  PlannedPayment(
+    id: 2,
+    date: '2026-11-23',
+    name: '월세',
+    category: '주거',
+    amount: 375000,
+    currency: 'KRW',
+    type: 'expense',
+    source: '반복 예정 항목',
+    visibleIn: ['30일', '목표일까지'],
+  ),
 ];
 
-Future<List<Note>> _noNotes(int _) async => const [];
+Future<List<OutlookSnapshot>> _outlook() async => const [_snapshot];
+Future<ScheduleData> _schedule() async =>
+    const ScheduleData(payments: _payments, outlook: _snapshot);
 
-Widget _app(ItemsLoader load) => MaterialApp(
-  home: ListScreen(load: load, loadNotes: _noNotes),
+Widget _app({OutlookLoader load = _outlook}) => MaterialApp(
+  home: ListScreen(load: load, scheduleLoad: _schedule),
 );
 
 void _setSize(WidgetTester tester, Size size) {
@@ -27,61 +85,80 @@ void _setSize(WidgetTester tester, Size size) {
 }
 
 void main() {
-  testWidgets('3상태: 로딩 → 오류 → 다시 시도 → 성공', (tester) async {
-    _setSize(tester, const Size(400, 800));
-
-    // 로딩 → 오류
-    final first = Completer<List<Item>>();
+  testWidgets('A는 loading, error/retry, empty, data 상태를 보여 준다', (tester) async {
+    _setSize(tester, const Size(400, 900));
+    final first = Completer<List<OutlookSnapshot>>();
     var calls = 0;
     await tester.pumpWidget(
-      _app(() => ++calls == 1 ? first.future : Future.value(_items)),
+      _app(
+        load: () =>
+            ++calls == 1 ? first.future : Future.value(const [_snapshot]),
+      ),
     );
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
-    expect(find.text('목록을 불러오는 중…'), findsOneWidget);
 
-    first.completeError(Exception('테스트 오류'));
+    first.completeError(Exception('test error'));
     await tester.pumpAndSettle();
-    expect(find.text('목록을 불러오지 못했습니다.'), findsOneWidget);
-
-    // 다시 시도 → 성공
+    expect(find.text('현금흐름을 불러오지 못했습니다.'), findsOneWidget);
     await tester.tap(find.text('다시 시도'));
     await tester.pumpAndSettle();
-    expect(find.text('항목 1'), findsOneWidget);
+    expect(find.text('내 현금흐름'), findsOneWidget);
     expect(calls, 2);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ListScreen(
+          key: const ValueKey('empty'),
+          load: () async => const [],
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('표시할 현금흐름 예시가 없습니다.'), findsOneWidget);
   });
 
-  testWidgets('3상태: 빈 상태', (tester) async {
-    await tester.pumpWidget(_app(() async => const []));
+  testWidgets('A → B 기간/필터 탭 → C 급여 지연 예시', (tester) async {
+    _setSize(tester, const Size(430, 900));
+    await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    expect(find.text('아직 등록된 항목이 없습니다.'), findsOneWidget);
+    expect(find.text('내 현금흐름'), findsOneWidget);
+
+    await tester.ensureVisible(find.text('일정 자세히 보기'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('일정 자세히 보기'));
+    await tester.pumpAndSettle();
+    expect(find.text('현금흐름 일정'), findsOneWidget);
+    expect(find.text('목표일까지의 예정 흐름'), findsOneWidget);
+    expect(find.text('월세'), findsOneWidget);
+
+    await tester.tap(find.text('7일'));
+    await tester.pumpAndSettle();
+    expect(find.text('월세'), findsNothing);
+    expect(find.text('이 기간에는 해당 유형의 항목이 없습니다.'), findsOneWidget);
+
+    await tester.tap(find.text('30일'));
+    await tester.pumpAndSettle();
+    expect(find.text('원격 급여'), findsOneWidget);
+    await tester.tap(find.text('수입'));
+    await tester.pumpAndSettle();
+    expect(find.text('월세'), findsNothing);
+    expect(find.text('원격 급여'), findsOneWidget);
+
+    await tester.ensureVisible(find.text('급여 지연 상황 비교 · 예시'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('급여 지연 상황 비교 · 예시'));
+    await tester.pumpAndSettle();
+    expect(find.text('급여 지연 상황 비교'), findsOneWidget);
+    expect(find.text('₩2,755,000'), findsOneWidget);
+    expect(find.textContaining('지연 시 3월 4일'), findsOneWidget);
   });
 
-  testWidgets('흐름: A 목록 → push B 상세 → tab 메모 → modal C 결과', (tester) async {
-    _setSize(tester, const Size(400, 800));
-    await tester.pumpWidget(_app(() async => _items));
-    await tester.pumpAndSettle();
-    expect(find.byType(ListView), findsOneWidget); // 폰: 목록
-    expect(find.byType(GridView), findsNothing);
-
-    await tester.tap(find.text('항목 1'));
-    await tester.pumpAndSettle();
-    expect(find.byType(BackButton), findsOneWidget); // push
-
-    await tester.tap(find.text('결과 보기'));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('실제 기능은 없습니다'), findsOneWidget); // modal
-    await tester.tap(find.text('닫기'));
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('메모'));
-    await tester.pumpAndSettle();
-    expect(find.text('아직 메모가 없습니다.'), findsOneWidget); // tab + 빈 상태
-  });
-
-  testWidgets('적응형: 600dp 이상이면 격자', (tester) async {
+  testWidgets('넓은 화면에서도 A가 표시된다', (tester) async {
     _setSize(tester, const Size(1024, 768));
-    await tester.pumpWidget(_app(() async => _items));
+    await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    expect(find.byType(GridView), findsOneWidget);
+    expect(find.text('내 현금흐름'), findsOneWidget);
+    expect(find.text('KRW'), findsOneWidget);
+    expect(find.text('VND'), findsOneWidget);
   });
 }

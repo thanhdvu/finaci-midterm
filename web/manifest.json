@@ -1,12 +1,11 @@
 {
-    "name": "Mid Project Template",
-    "short_name": "MidProject",
+    "name": "finaci",
+    "short_name": "finaci",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "GAI3008 중간고사 — 실제 앱 v2 UI 템플릿 (UI만 구현)",
-    "orientation": "portrait-primary",
+    "background_color": "#F7F4EC",
+    "theme_color": "#4F5B3A",
+    "description": "다중 통화 현금흐름을 계획하는 UI 프로토타입",
     "prefer_related_applications": false,
     "icons": [
         {

@@ -1,60 +1,407 @@
 {
-  "items": [
+  "outlook": [
     {
       "id": 1,
-      "title": "예시 항목 1",
-      "subtitle": "TODO: 내 앱의 실제 화면에 맞는 예시 문구로 바꾼다",
-      "image": "https://picsum.photos/seed/item1/400/300",
-      "tags": [
-        "예시",
-        "태그A"
+      "goalDate": "2027-02-28",
+      "actualKrw": 1615000,
+      "projectedKrw": 3135000,
+      "balances": [
+        {
+          "currency": "KRW",
+          "amount": 1240000
+        },
+        {
+          "currency": "VND",
+          "amount": 7500000
+        }
+      ],
+      "actualTimeline": [
+        {
+          "label": "09/30",
+          "amount": 1495000,
+          "barHeight": 78
+        },
+        {
+          "label": "10/10",
+          "amount": 1555000,
+          "barHeight": 82
+        },
+        {
+          "label": "10/20",
+          "amount": 1465000,
+          "barHeight": 76
+        },
+        {
+          "label": "10/28",
+          "amount": 1615000,
+          "barHeight": 86
+        }
+      ],
+      "forecastTimeline": [
+        {
+          "label": "오늘",
+          "amount": 1615000,
+          "barHeight": 52
+        },
+        {
+          "label": "11/30",
+          "amount": 1995000,
+          "barHeight": 64
+        },
+        {
+          "label": "12/31",
+          "amount": 2375000,
+          "barHeight": 76
+        },
+        {
+          "label": "01/31",
+          "amount": 2755000,
+          "barHeight": 88
+        },
+        {
+          "label": "02/28",
+          "amount": 3135000,
+          "barHeight": 100
+        }
+      ],
+      "upcomingPayments": [
+        {
+          "id": 1,
+          "date": "2026-11-05",
+          "name": "원격 급여",
+          "category": "급여",
+          "amount": 7000000,
+          "currency": "VND",
+          "type": "income",
+          "source": "반복 예정 항목",
+          "visibleIn": [
+            "30일",
+            "목표일까지"
+          ]
+        },
+        {
+          "id": 2,
+          "date": "2026-11-10",
+          "name": "가족 지원금",
+          "category": "가족 지원",
+          "amount": 2000000,
+          "currency": "VND",
+          "type": "income",
+          "source": "반복 예정 항목",
+          "visibleIn": [
+            "30일",
+            "목표일까지"
+          ]
+        },
+        {
+          "id": 3,
+          "date": "2026-11-23",
+          "name": "월세",
+          "category": "주거",
+          "amount": 375000,
+          "currency": "KRW",
+          "type": "expense",
+          "source": "반복 예정 항목",
+          "visibleIn": [
+            "30일",
+            "목표일까지"
+          ]
+        }
+      ],
+      "goal": {
+        "name": "다음 학기 등록금",
+        "savedAmount": 1200000,
+        "targetAmount": 3000000,
+        "currency": "KRW",
+        "dueDate": "2027-02-28",
+        "progress": 0.4
+      }
+    }
+  ],
+  "plannedPayments": [
+    {
+      "id": 1,
+      "date": "2026-11-05",
+      "name": "원격 급여",
+      "category": "급여",
+      "amount": 7000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "30일",
+        "목표일까지"
       ]
     },
     {
       "id": 2,
-      "title": "예시 항목 2",
-      "subtitle": "목록 → 상세 → 결과 흐름을 확인하기 위한 샘플 데이터",
-      "image": "https://picsum.photos/seed/item2/400/300",
-      "tags": [
-        "태그B"
+      "date": "2026-11-10",
+      "name": "가족 지원금",
+      "category": "가족 지원",
+      "amount": 2000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "30일",
+        "목표일까지"
       ]
     },
     {
       "id": 3,
-      "title": "예시 항목 3",
-      "subtitle": "태그가 없는 항목 (빈 값도 화면이 깨지지 않는지 확인)",
-      "image": "https://picsum.photos/seed/item3/400/300",
-      "tags": []
+      "date": "2026-11-23",
+      "name": "월세",
+      "category": "주거",
+      "amount": 375000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "30일",
+        "목표일까지"
+      ]
     },
     {
       "id": 4,
-      "title": "예시 항목 4",
-      "subtitle": "넓은 화면(600dp 이상)에서는 격자로 보인다",
-      "image": "https://picsum.photos/seed/item4/400/300",
-      "tags": [
-        "태그A",
-        "태그B"
+      "date": "2026-11-25",
+      "name": "아르바이트 급여",
+      "category": "급여",
+      "amount": 380000,
+      "currency": "KRW",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "30일",
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 5,
+      "date": "2026-11-25",
+      "name": "보험료",
+      "category": "보험",
+      "amount": 75000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "30일",
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 6,
+      "date": "2026-12-05",
+      "name": "원격 급여",
+      "category": "급여",
+      "amount": 7000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 7,
+      "date": "2026-12-10",
+      "name": "가족 지원금",
+      "category": "가족 지원",
+      "amount": 2000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 8,
+      "date": "2026-12-23",
+      "name": "월세",
+      "category": "주거",
+      "amount": 375000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 9,
+      "date": "2026-12-25",
+      "name": "아르바이트 급여",
+      "category": "급여",
+      "amount": 380000,
+      "currency": "KRW",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 10,
+      "date": "2026-12-25",
+      "name": "보험료",
+      "category": "보험",
+      "amount": 75000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 11,
+      "date": "2027-01-05",
+      "name": "원격 급여",
+      "category": "급여",
+      "amount": 7000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 12,
+      "date": "2027-01-10",
+      "name": "가족 지원금",
+      "category": "가족 지원",
+      "amount": 2000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 13,
+      "date": "2027-01-23",
+      "name": "월세",
+      "category": "주거",
+      "amount": 375000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 14,
+      "date": "2027-01-25",
+      "name": "아르바이트 급여",
+      "category": "급여",
+      "amount": 380000,
+      "currency": "KRW",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 15,
+      "date": "2027-01-25",
+      "name": "보험료",
+      "category": "보험",
+      "amount": 75000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 16,
+      "date": "2027-02-05",
+      "name": "원격 급여",
+      "category": "급여",
+      "amount": 7000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 17,
+      "date": "2027-02-10",
+      "name": "가족 지원금",
+      "category": "가족 지원",
+      "amount": 2000000,
+      "currency": "VND",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 18,
+      "date": "2027-02-23",
+      "name": "월세",
+      "category": "주거",
+      "amount": 375000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 19,
+      "date": "2027-02-25",
+      "name": "아르바이트 급여",
+      "category": "급여",
+      "amount": 380000,
+      "currency": "KRW",
+      "type": "income",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
+      ]
+    },
+    {
+      "id": 20,
+      "date": "2027-02-25",
+      "name": "보험료",
+      "category": "보험",
+      "amount": 75000,
+      "currency": "KRW",
+      "type": "expense",
+      "source": "반복 예정 항목",
+      "visibleIn": [
+        "목표일까지"
       ]
     }
   ],
-  "notes": [
-    {
-      "id": 1,
-      "itemId": 1,
-      "text": "예시 메모 1 — 상세 화면 '메모' 탭에 보인다",
-      "date": "2026-10-15"
-    },
-    {
-      "id": 2,
-      "itemId": 1,
-      "text": "예시 메모 2",
-      "date": "2026-10-16"
-    },
-    {
-      "id": 3,
-      "itemId": 2,
-      "text": "예시 메모 3",
-      "date": "2026-10-17"
-    }
-  ]
+  "demoAssumptions": {
+    "baseDate": "2026-10-28",
+    "baseCurrency": "KRW",
+    "fixedExampleRate": "1 KRW = 20 VND",
+    "currentKrwEquivalent": 1615000,
+    "preparedMonthlyNetKrw": 380000,
+    "scenarioPaymentDate": "2027-02-25",
+    "scenarioDelayedDate": "2027-03-04",
+    "scenarioGoalDate": "2027-02-28",
+    "scenarioNormalKrw": 3135000,
+    "scenarioDelayedKrw": 2755000,
+    "excluded": [
+      "변동 지출",
+      "환율 변화",
+      "환전 수수료",
+      "미입력 항목"
+    ],
+    "note": "모든 합계와 시점별 값은 사전에 작성한 UI 예시이며 앱에서 계산하지 않는다."
+  }
 }

@@ -1,11 +1,12 @@
 {
-  "name": "mid-project-template-mock-server",
+  "name": "finaci-midterm-mock-server",
   "version": "1.0.0",
   "private": true,
+  "engines": { "node": ">=22 <25" },
   "description": "GAI3008 중간고사 목업 서버 (json-server 0.17.4, 앱은 GET만 사용)",
   "scripts": {
-    "start": "json-server --watch db.json --port 3000 --host 0.0.0.0",
-    "mock": "json-server --watch db.json --port 3000 --host 0.0.0.0"
+    "start": "json-server --watch db.json --port 3000 --host 0.0.0.0 --read-only",
+    "mock": "json-server --watch db.json --port 3000 --host 0.0.0.0 --read-only"
   },
   "dependencies": {
     "json-server": "0.17.4"

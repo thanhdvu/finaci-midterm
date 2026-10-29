@@ -47,3 +47,19 @@ app.*.map.json
 # 중간고사 템플릿: 목업 서버 의존성·Vercel 설정은 올리지 않는다
 node_modules/
 .vercel/
+
+# Local authoring, raw review downloads and previous presentation revisions
+/tmp/
+/template-inspect.ndjson
+/docs/w07-extracted.txt
+/docs/wallet-ios-reviews-*.json
+/output/*-v*.pptx
+/output/*-v*.pdf
+/mock_server/public/
+/docs/screenshots/states/loading-check.png
+/docs/render_course_templates_ko_legacy.py
+/docs/render_finaci_wireframes_ko.py
+/docs/finaci-screen-plan-ko.png
+/docs/video/*.webm
+/docs/video/*.ass
+/docs/video/raw/

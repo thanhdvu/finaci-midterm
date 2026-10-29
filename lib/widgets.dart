@@ -2,8 +2,108 @@
 //   LoadingView  불러오는 중   P01 시스템 상태의 가시성 (예)
 //   ErrorView    오류 + 다시 시도   P09 오류 인식·진단·복구 (예)
 //   EmptyView    빈 목록 안내   P01 (예)
-// TODO: 문구는 디자인 가이드 글의 명칭 그대로 바꾼다.
+// 문구는 디자인 가이드의 명칭과 A/B 화면의 데이터 상태를 따른다.
 import 'package:flutter/material.dart';
+
+// finaci 브랜드 팔레트: 따뜻한 아이보리, 올리브, 세이지, 테라코타.
+const finaciPrimary = Color(0xFF4F5B3A);
+const finaciOlive = Color(0xFF687451);
+const finaciPositive = Color(0xFF4F5B3A);
+const finaciAccent = Color(0xFFB5674C);
+const finaciInk = Color(0xFF292D27);
+const finaciMuted = Color(0xFF686B61);
+const finaciCanvas = Color(0xFFF7F4EC);
+const finaciSurface = Color(0xFFFFFEFA);
+const finaciSage = Color(0xFFE5E9DC);
+const finaciCream = Color(0xFFF2E8D3);
+const finaciBorder = Color(0xFFDCD7CB);
+const finaciAccentSurface = Color(0xFFF4E6DE);
+// Darker text/icon companion keeps small expense labels readable on light cards.
+const finaciAccentText = Color(0xFF8F4D3A);
+
+/// finaci ribbon mascot asset, used as a small contextual guide.
+class FinaciMascot extends StatelessWidget {
+  const FinaciMascot({super.key, this.size = 56});
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) => Image.asset(
+    'assets/mascot/finaci-explaining.png',
+    width: size,
+    height: size,
+    fit: BoxFit.contain,
+    semanticLabel: 'finaci 안내 캐릭터',
+  );
+}
+
+/// Wallet-inspired navigation shell; destinations outside the planned A/B flow
+/// return a short demo message instead of opening unplanned screens.
+class FinaciBottomNavigationBar extends StatelessWidget {
+  const FinaciBottomNavigationBar({
+    super.key,
+    required this.selectedIndex,
+    required this.onDestinationSelected,
+  });
+
+  final int selectedIndex;
+  final ValueChanged<int> onDestinationSelected;
+
+  @override
+  Widget build(BuildContext context) => NavigationBar(
+    selectedIndex: selectedIndex,
+    onDestinationSelected: onDestinationSelected,
+    backgroundColor: finaciSurface,
+    indicatorColor: finaciSage,
+    destinations: const [
+      NavigationDestination(
+        icon: Icon(Icons.account_balance_wallet_outlined),
+        selectedIcon: Icon(Icons.account_balance_wallet_rounded),
+        label: '대시보드',
+      ),
+      NavigationDestination(
+        icon: Icon(Icons.schedule_outlined),
+        selectedIcon: Icon(Icons.schedule_rounded),
+        label: '계획',
+      ),
+      NavigationDestination(
+        icon: Icon(Icons.add_circle_rounded, size: 38, color: finaciPrimary),
+        label: '추가',
+      ),
+      NavigationDestination(
+        icon: Icon(Icons.bar_chart_outlined),
+        selectedIcon: Icon(Icons.bar_chart_rounded),
+        label: '통계',
+      ),
+      NavigationDestination(icon: Icon(Icons.more_horiz_rounded), label: '더보기'),
+    ],
+  );
+}
+
+String formatMoney(String currency, int amount) {
+  final digits = amount.toString();
+  final grouped = digits.replaceAllMapped(
+    RegExp(r'\B(?=(\d{3})+(?!\d))'),
+    (_) => ',',
+  );
+  return switch (currency) {
+    'KRW' => '₩$grouped',
+    'VND' => '₫$grouped',
+    _ => '$grouped $currency',
+  };
+}
+
+String formatShortDate(String isoDate) {
+  final parts = isoDate.split('-');
+  if (parts.length != 3) return isoDate;
+  return '${parts[1]}월 ${int.tryParse(parts[2]) ?? parts[2]}일';
+}
+
+String formatLongDate(String isoDate) {
+  final parts = isoDate.split('-');
+  if (parts.length != 3) return isoDate;
+  return '${parts[0]}년 ${int.tryParse(parts[1]) ?? parts[1]}월 ${int.tryParse(parts[2]) ?? parts[2]}일';
+}
 
 /// 로딩 상태
 class LoadingView extends StatelessWidget {
@@ -81,7 +181,7 @@ class EmptyView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.inbox_outlined, size: 48),
+            const FinaciMascot(size: 72),
             const SizedBox(height: 12),
             Text(message, textAlign: TextAlign.center),
           ],

@@ -1,10 +1,11 @@
-// 데이터 가져오기 — GET만 쓴다 (중간고사 안내 5장: POST/PUT/DELETE·저장은 감점)
-// 화면 코드는 이 파일의 fetchItems() / fetchNotes()만 부른다. (관심사 분리)
+// 데이터 가져오기 — GET만 사용한다. 영구 저장/업데이트 API는 없다.
+// 모든 요청은 이 파일 안에 둔다.
 //
 // 서버 주소 (코드 수정 없이 실행할 때 바꾼다):
 //   기본값  Android 에뮬레이터 → http://10.0.2.2:3000   그 외(Chrome·macOS·iOS 시뮬레이터) → http://localhost:3000
 //   실기기  flutter run --dart-define=API_BASE=http://192.168.0.10:3000   (같은 Wi-Fi의 PC IP)
 //   배포    flutter build web --dart-define=API_BASE=https://<프로젝트>.vercel.app/api   (가산점)
+//   같은 웹 출처 배포: flutter build web --dart-define=API_BASE=/api
 //
 // 발표·데모용 상태 스위치 (로딩·오류·빈 상태를 눈으로 보여 주기):
 //   --dart-define=DEMO_STATE=loading → 3초 늦게 응답 (로딩 상태)
@@ -21,7 +22,12 @@ const _apiBaseOverride = String.fromEnvironment('API_BASE');
 
 /// json-server 주소. API_BASE를 넘기면 그 값, 아니면 실행 대상에 맞는 기본값.
 String get apiBase {
-  if (_apiBaseOverride.isNotEmpty) return _apiBaseOverride;
+  if (_apiBaseOverride.isNotEmpty) {
+    if (kIsWeb && _apiBaseOverride.startsWith('/')) {
+      return Uri.base.resolve(_apiBaseOverride).toString();
+    }
+    return _apiBaseOverride;
+  }
   // Android 에뮬레이터 안의 localhost는 에뮬레이터 자신 → PC는 10.0.2.2
   if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
     return 'http://10.0.2.2:3000';
@@ -47,7 +53,7 @@ Future<List<Object?>> _getList(String path) async {
     case 'loading' || 'slow':
       await Future<void>.delayed(const Duration(seconds: 3));
     case 'error':
-      throw const ApiException('DEMO_STATE=error 로 일부러 낸 오류입니다.');
+      throw const ApiException('일시적으로 자료를 불러오지 못했습니다. 연결을 확인한 뒤 다시 시도해 주세요.');
     case 'empty':
       return const [];
   }
@@ -57,33 +63,51 @@ Future<List<Object?>> _getList(String path) async {
     res = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 5));
   } on Exception catch (e) {
     debugPrint('[GET 실패] $url — $e');
-    throw ApiException('서버에 연결하지 못했습니다.\n$apiBase\nmock_server가 켜져 있는지 확인하세요.');
+    throw const ApiException(
+      '연결을 확인한 뒤 다시 시도해 주세요. 잠시 후에도 같은 문제가 생기면 앱을 다시 열어 주세요.',
+    );
   }
   if (res.statusCode != 200) {
-    throw ApiException('서버 응답 오류 (HTTP ${res.statusCode})\n$url');
+    debugPrint('[GET 응답 오류] HTTP ${res.statusCode} $url');
+    throw const ApiException('자료를 불러오는 중 문제가 생겼습니다. 잠시 후 다시 시도해 주세요.');
   }
   // 한글이 깨지지 않도록 bytes를 UTF-8로 직접 디코딩
-  final decoded = jsonDecode(utf8.decode(res.bodyBytes));
+  final Object? decoded;
+  try {
+    decoded = jsonDecode(utf8.decode(res.bodyBytes));
+  } on FormatException catch (e) {
+    debugPrint('[GET JSON 오류] $url — $e');
+    throw const ApiException('자료를 표시하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+  }
   if (decoded is! List) {
-    throw ApiException('$url 의 응답이 배열이 아닙니다. db.json을 확인하세요.');
+    debugPrint('[GET 형식 오류] $url 응답이 배열이 아닙니다.');
+    throw const ApiException('자료를 표시하지 못했습니다. 잠시 후 다시 시도해 주세요.');
   }
   return decoded;
 }
 
-// TODO: db.json의 최상위 키 이름을 바꾸면 아래 경로('items', 'notes')도 같이 바꾼다.
-
-/// A 목록 화면: GET /items
-Future<List<Item>> fetchItems() async {
-  final list = await _getList('items');
-  return list.map(Item.fromJson).nonNulls.toList();
+/// A 현금흐름 홈: GET /outlook (정적으로 준비한 화면용 예시 데이터)
+Future<List<OutlookSnapshot>> fetchOutlook() async {
+  final list = await _getList('outlook');
+  return list.map(OutlookSnapshot.fromJson).nonNulls.toList();
 }
 
-/// B 상세 화면 '메모' 탭: GET /notes?itemId=1 (json-server의 필터 — 여전히 GET)
-Future<List<Note>> fetchNotes(int itemId) async {
-  final list = await _getList('notes?itemId=$itemId');
-  return list.map(Note.fromJson).nonNulls.toList();
+/// B 현금흐름 일정 상세: GET /plannedPayments
+Future<List<PlannedPayment>> fetchPlannedPayments() async {
+  final list = await _getList('plannedPayments');
+  return list.map(PlannedPayment.fromJson).nonNulls.toList();
 }
 
-/// 화면이 데이터를 받는 함수 모양 — 테스트에서는 가짜 함수를 넣는다.
-typedef ItemsLoader = Future<List<Item>> Function();
-typedef NotesLoader = Future<List<Note>> Function(int itemId);
+/// B 일정 화면: 이미 등록된 반복 항목과 전망 예시를 각각 읽는다.
+Future<ScheduleData> fetchScheduleData() async {
+  final results = await Future.wait([
+    _getList('plannedPayments'),
+    _getList('outlook'),
+  ]);
+  final payments = results[0].map(PlannedPayment.fromJson).nonNulls.toList();
+  final outlooks = results[1].map(OutlookSnapshot.fromJson).nonNulls.toList();
+  return ScheduleData(
+    payments: payments,
+    outlook: outlooks.isEmpty ? null : outlooks.first,
+  );
+}
