@@ -5,8 +5,8 @@
 GAI3008 응용모바일프로그래밍 · Dinh Vu Thuy Anh · 2024106125
 
 - 제출 저장소: https://github.com/thanhdvu/finaci-midterm
-- 웹 데모: https://flying-fjord-n1xr8rj.tmp.now
-- 데이터 확인: [전망 예시](https://flying-fjord-n1xr8rj.tmp.now/api/outlook) · [예정 항목](https://flying-fjord-n1xr8rj.tmp.now/api/plannedPayments)
+- 웹 데모: https://flying-fjord-n1xr8rj-thuyanhdv-3408.vercel.app
+- 데이터 확인: [전망 예시](https://flying-fjord-n1xr8rj-thuyanhdv-3408.vercel.app/api/outlook) · [예정 항목](https://flying-fjord-n1xr8rj-thuyanhdv-3408.vercel.app/api/plannedPayments)
 - 1분 데모 영상: [MP4](docs/video/finaci-demo-1min.mp4)
 - 발표자료: [PDF](output/finaci-midterm-final.pdf) · [PowerPoint](output/finaci-midterm-final.pptx)
 

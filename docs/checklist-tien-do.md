@@ -38,11 +38,13 @@ Hạn nộp: 15:00 KST. Bộ nộp dùng tên cố định `output/finaci-midter
 - [x] PPT/PDF31 trang: nội dung chính và B1–B5; nhân bản phụ lục theo màn/nguyên tắc như template cho phép.
 - [x] Bìa ivory/olive + mascot, sửa mạch nội dung; đã xuất PDF và xem contact sheet.
 - [x] Video60 giây có phụ đề Hàn: `docs/video/finaci-demo-1min.mp4`.
-- [x] Vercel hoạt động: https://flying-fjord-n1xr8rj.tmp.now ; GET200, API ghi403. Người dùng xác nhận nhận project vào tài khoản.
+- [x] Vercel hoạt động: https://flying-fjord-n1xr8rj-thuyanhdv-3408.vercel.app ; GET200, API ghi403. Người dùng xác nhận nhận project vào tài khoản.
 - [x] Repo cá nhân: https://github.com/thanhdvu/finaci-midterm ; template giữ ở upstream.
-- [ ] Push bộ nộp cuối và kiểm tra clone sạch.
+- [x] Đã push bộ nộp; clone sạch, npm ci và ba Flutter test đều qua.
 - [x] Tên/ID, tự đánh giá, script6 phút và Q&A đã có. Tạm86/100 + đề xuất5 Vercel; điểm thực tế do thầy chấm.
 - [ ] Người trình bày luyện6 phút và tự giải thích lựa chọn.
 - [ ] Nộp PDF + URL GitHub trên LMS, kiểm tra xác nhận nộp.
 
-Ghi chú: bản Vercel hiện có đầy đủ flow và dữ liệu; cập nhật căn lề B cuối cần CLI đăng nhập vào project đã nhận. Các bản v3–v11 trong máy là lịch sử nội bộ; chỉ hai file tên cố định trong output là bản nộp.
+Ghi chú: Vercel đã cập nhật cả sửa căn lề B cuối; web/API công khai đã kiểm tra GET200 và POST403. Các bản v3–v11 trong máy là lịch sử nội bộ; chỉ hai file tên cố định trong output là bản nộp.
+
+

@@ -88,4 +88,4 @@ npx vercel --cwd mock_server --prod
 
 같은 Vercel 프로젝트에서 웹과 API를 함께 배포할 때는 `--dart-define=API_BASE=/api`로 빌드할 수 있습니다. 실제 웹 출처의 `/api`로 해석하며, 설정을 생략한 로컬 실행은 계속 localhost json-server를 사용합니다.
 
-현재 시연 URL: https://flying-fjord-n1xr8rj.tmp.now . 2026-10-29 웹과 데이터 GET 200, 데이터 POST/PUT/DELETE 403을 확인했고 학생이 프로젝트 수령을 확인했습니다. Windows에서 재배포를 준비하려면 저장소 루트에서 `powershell -File scripts/prepare-vercel.ps1`을 실행하고, Vercel CLI에 로그인한 뒤 `npx vercel --cwd mock_server --prod`로 배포합니다. `public/`은 생성 산출물이라 Git에는 올리지 않으며, CLI 배포에는 `.vercelignore` 규칙으로 포함합니다.
+현재 시연 URL: https://flying-fjord-n1xr8rj-thuyanhdv-3408.vercel.app . 2026-10-29 웹과 데이터 GET 200, 데이터 POST/PUT/DELETE 403을 확인했고 학생이 프로젝트 수령을 확인했습니다. Windows에서 재배포를 준비하려면 저장소 루트에서 `powershell -File scripts/prepare-vercel.ps1`을 실행하고, Vercel CLI에 로그인한 뒤 `npx vercel --cwd mock_server --prod`로 배포합니다. `public/`은 생성 산출물이라 Git에는 올리지 않으며, CLI 배포에는 `.vercelignore` 규칙으로 포함합니다.
